@@ -1,2 +1,1 @@
-# debtcrusher
-Loan payoff calculator
+
