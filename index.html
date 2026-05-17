@@ -373,63 +373,94 @@
    *   Avalanche → sort by interest rate    DESCENDING (highest first)
    */
   function calcPayoff(debts, method, extraPerMonth) {
-    // Clone debts with working fields
+    /*
+     * TRUE Snowball / Avalanche implementation
+     *
+     * Fixed total monthly budget = sum of all minimums + extra
+     * Every month:
+     *   1. Interest accrues on all balances
+     *   2. ALL debts receive their minimum payment
+     *   3. Any surplus (budget minus minimums paid to active debts,
+     *      plus freed minimums from paid-off debts) goes 100% to
+     *      the single priority debt
+     *
+     * Priority debt:
+     *   Snowball  = lowest ORIGINAL balance (encourages quick wins)
+     *   Avalanche = highest interest RATE   (minimises total interest)
+     *
+     * The surplus grows every time a debt is eliminated because that
+     * debt's minimum payment is no longer needed elsewhere.
+     */
+
+    // Total fixed monthly budget
+    var totalBudget = extraPerMonth;
+    debts.forEach(function(d){ totalBudget += Math.max(d.minPay, 1); });
+
+    // Clone debts
     var ds = debts.map(function(d) {
       return {
-        name:       d.name,
-        origBalance: d.balance,
-        rate:       d.rate,
-        minPay:     Math.max(d.minPay, 1), // at least $1 minimum
-        remaining:  d.balance,
+        name:         d.name,
+        origBalance:  d.balance,
+        rate:         d.rate,
+        minPay:       Math.max(d.minPay, 1),
+        remaining:    d.balance,
         paidOffMonth: null
       };
     });
 
+    // Determine fixed priority order from ORIGINAL values (never changes)
+    var priorityOrder = ds.slice().sort(function(a, b) {
+      if (method === 'snowball') {
+        return a.origBalance - b.origBalance; // smallest balance first
+      } else {
+        return b.rate - a.rate;               // highest rate first
+      }
+    });
+
     var month         = 0;
     var totalInterest = 0;
-    var freedUp       = 0; // running pool of freed minimum payments
 
     while (ds.some(function(d){ return d.remaining > 0.005; }) && month < 600) {
       month++;
 
-      // 1. Accrue interest
+      // 1. Accrue interest on all active debts
       ds.forEach(function(d) {
         if (d.remaining <= 0.005) return;
         var interest = d.remaining * (d.rate / 100 / 12);
         totalInterest += interest;
-        d.remaining  += interest;
+        d.remaining   += interest;
       });
 
-      // 2. Apply minimums to every active debt
+      // 2. Pay minimums on ALL active debts first
+      var minimumsPaid = 0;
       ds.forEach(function(d) {
         if (d.remaining <= 0.005) return;
-        var pay    = Math.min(d.minPay, d.remaining);
-        d.remaining -= pay;
+        var pay = Math.min(d.minPay, d.remaining);
+        d.remaining  -= pay;
+        minimumsPaid += pay;
         if (d.remaining < 0.005) d.remaining = 0;
       });
 
-      // 3. Sort priority queue for this month
-      var active = ds.filter(function(d){ return d.remaining > 0.005; });
-      if (method === 'snowball') {
-        active.sort(function(a,b){ return a.remaining - b.remaining; }); // smallest balance first
-      } else {
-        active.sort(function(a,b){ return b.rate - a.rate; });           // highest rate first
+      // 3. Calculate surplus = total budget minus minimums actually paid
+      //    (freed minimums from paid-off debts automatically increase surplus)
+      var surplus = totalBudget - minimumsPaid;
+
+      // 4. Apply entire surplus to the top priority debt that still has a balance
+      for (var i = 0; i < priorityOrder.length && surplus > 0.005; i++) {
+        var target = priorityOrder[i];
+        // Find the live debt object
+        var live = ds.find(function(d){ return d.name === target.name; });
+        if (!live || live.remaining <= 0.005) continue;
+        var pay = Math.min(surplus, live.remaining);
+        live.remaining -= pay;
+        surplus        -= pay;
+        if (live.remaining < 0.005) live.remaining = 0;
       }
 
-      // 4. Apply freed-up payments + extra to priority debt
-      var pool = freedUp + extraPerMonth;
-      for (var i = 0; i < active.length && pool > 0.005; i++) {
-        var pay = Math.min(pool, active[i].remaining);
-        active[i].remaining -= pay;
-        pool -= pay;
-        if (active[i].remaining < 0.005) active[i].remaining = 0;
-      }
-
-      // 5. Mark newly paid-off debts and accumulate their minimums
+      // 5. Mark paid-off debts
       ds.forEach(function(d) {
         if (d.remaining <= 0.005 && !d.paidOffMonth) {
           d.paidOffMonth = month;
-          freedUp += d.minPay; // roll minimum into pool permanently
         }
       });
     }
@@ -588,9 +619,12 @@
   document.addEventListener('keydown', function(e){ if (e.key==='Escape') closeEmailModal(); });
 
   window.addEventListener('load', function() {
-    addDebtRow('Visa Card',    3500,  19.99, 75);
-    addDebtRow('Car Loan',     8200,   6.50, 220);
-    addDebtRow('Student Loan', 12000,  4.50, 150);
+    // These debts clearly differentiate Snowball vs Avalanche:
+    // Snowball attacks Store Card first (smallest balance $800)
+    // Avalanche attacks Credit Card first (highest rate 21.99%)
+    addDebtRow('Store Card',   800,  18.00, 25);
+    addDebtRow('Credit Card', 5500,  21.99, 90);
+    addDebtRow('Car Loan',    9000,   6.50, 175);
   });
 </script>
 </body>
