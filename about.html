@@ -1,1 +1,164 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Sharpline | DebtCrusher</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1a0f;
+    --paper: #f5f0e8;
+    --sage: #4a7c59;
+    --gold: #c8922a;
+    --cream: #faf7f0;
+    --muted: #8a8a7a;
+    --border: #d8d0c0;
+    --sage-pale: #d4e8da;
+    --red: #b84444;
+    --red-pale: #f5dada;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: 'DM Mono', monospace; min-height: 100vh; padding-bottom: 5rem; }
+  header { padding: 2.5rem 3rem 1.5rem; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--sage); letter-spacing: -0.02em; }
+  .logo span { color: var(--gold); }
+  .tagline { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; }
+  nav { padding: 1rem 3rem; border-bottom: 1px solid var(--border); font-size: 0.72rem; color: var(--muted); }
+  nav a { color: var(--sage); text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; padding: 0.8rem 3rem; border-top: 1px solid var(--border); background: var(--cream); display: flex; gap: 1.5rem; font-size: 0.72rem; z-index: 99; justify-content: center; box-shadow: 0 -2px 12px rgba(15,26,15,0.06); }
+  .bottom-nav a { color: var(--sage); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .bottom-nav a:hover { color: var(--gold); }
+  .container { max-width: 720px; margin: 3rem auto; padding: 0 2rem; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--red); margin-bottom: 1.5rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--ink); margin: 2rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+  p { font-size: 0.82rem; line-height: 1.9; color: var(--ink); margin-bottom: 1rem; }
+  .highlight { background: var(--red-pale); border-left: 3px solid var(--red); padding: 1rem 1.2rem; border-radius: 0 2px 2px 0; font-size: 0.8rem; line-height: 1.8; margin-bottom: 2rem; color: var(--red); }
+  .highlight strong { color: var(--ink); }
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .feature-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem; }
+  .feature-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .feature-title { font-size: 0.78rem; font-weight: 500; color: var(--sage); margin-bottom: 0.4rem; }
+  .feature-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.7; }
+  .tools-panel { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; margin: 2rem 0; }
+  .tools-panel-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--ink); padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .tool-card { background: var(--paper); border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem; text-decoration: none; color: var(--ink); transition: border-color 0.2s, box-shadow 0.2s; display: block; }
+  .tool-card:hover { border-color: var(--sage); box-shadow: 0 2px 8px rgba(74,124,89,0.12); }
+  .tool-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .tool-name { font-size: 0.8rem; font-weight: 500; color: var(--sage); margin-bottom: 0.3rem; }
+  .tool-desc { font-size: 0.68rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.5rem; }
+  .tool-link { font-size: 0.65rem; color: var(--gold); letter-spacing: 0.05em; }
+  .cta { background: var(--sage); color: white; border: none; border-radius: 2px; padding: 0.85rem 2rem; font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 1rem; transition: background 0.2s; }
+  .cta:hover { background: #3d6849; }
+  footer { text-align: center; padding: 1.5rem 2rem; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; border-top: 1px solid var(--border); margin-top: 2rem; }
+  footer a { color: var(--sage); text-decoration: none; }
+  @media (max-width: 540px) { header { padding: 1.5rem; flex-direction: column; gap: 0.3rem; } nav { padding: 1rem 1.5rem; } .features { grid-template-columns: 1fr; } .tools-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Sharpline<span>.</span></div>
+  <div class="tagline">Debt Payoff Calculator | debtcrusher.ca</div>
+</header>
+
+<nav>
+  <a href="index.html">← Back to Calculator</a> &nbsp;·&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+  <h1>About DebtCrusher</h1>
+
+  <div class="highlight">
+    <strong>DebtCrusher</strong> is a free debt payoff calculator that shows you exactly when you'll be debt free — and how much interest you'll save — using the Snowball, Avalanche, or both methods side by side.
+  </div>
+
+  <h2>What We Do</h2>
+  <p>DebtCrusher helps you take control of your debt with a clear, honest payoff plan. Enter your debts, choose your strategy, and instantly see a personalised timeline showing when each debt gets paid off and your total debt-free date.</p>
+  <p>No sign-up. No data stored. All calculations run instantly in your browser — your financial information never leaves your device.</p>
+
+  <h2>The Two Methods Explained</h2>
+  <p><strong>Snowball Method</strong> — Pay off your smallest balance first, regardless of interest rate. Each debt you eliminate frees up cash to attack the next one. This method builds momentum and motivation through quick early wins.</p>
+  <p><strong>Avalanche Method</strong> — Pay off your highest interest rate debt first. This method minimises the total interest you pay over time and gets you debt free for less money overall — but requires more patience upfront.</p>
+  <p>Not sure which to choose? Use the <strong>Compare Both</strong> option to see them side by side and decide what works best for your situation.</p>
+
+  <h2>Features</h2>
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">❄️</div>
+      <div class="feature-title">Snowball Method</div>
+      <div class="feature-desc">Pay smallest balances first for fast wins and powerful momentum.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏔️</div>
+      <div class="feature-title">Avalanche Method</div>
+      <div class="feature-desc">Target highest interest first to save the most money overall.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚖️</div>
+      <div class="feature-title">Side by Side Comparison</div>
+      <div class="feature-desc">Compare both methods simultaneously to find your best option.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <div class="feature-title">Full Payoff Timeline</div>
+      <div class="feature-desc">See exactly when each individual debt gets paid off, month by month.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <div class="feature-title">Extra Payment Impact</div>
+      <div class="feature-desc">See how adding even a small extra monthly payment accelerates your freedom date.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✉️</div>
+      <div class="feature-title">Print &amp; Email Results</div>
+      <div class="feature-desc">Save or share your payoff plan with a partner or financial advisor.</div>
+    </div>
+  </div>
+
+  <h2>About Sharpline</h2>
+  <p>DebtCrusher is a Sharpline utility tool. Sharpline builds clean, focused financial web tools designed to give people fast, accurate answers without the clutter. All Sharpline tools are free to use and supported by advertising.</p>
+
+  <a href="index.html" class="cta">Start Crushing Debt →</a>
+
+  <div class="tools-panel">
+    <div class="tools-panel-title">More Free Tools from Sharpline</div>
+    <div class="tools-grid">
+      <a href="https://vaultgoal.com" class="tool-card" target="_blank">
+        <div class="tool-icon">🎯</div>
+        <div class="tool-name">Savings Goal Tracker</div>
+        <div class="tool-desc">See exactly when you'll reach any savings goal with milestone dates.</div>
+        <div class="tool-link">vaultgoal.com →</div>
+      </a>
+      <a href="https://503020.ca" class="tool-card" target="_blank">
+        <div class="tool-icon">📊</div>
+        <div class="tool-name">50/30/20 Budget Calculator</div>
+        <div class="tool-desc">Split your income into needs, wants and savings in seconds.</div>
+        <div class="tool-link">503020.ca →</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Sharpline · debtcrusher.ca © 2026 &nbsp;·&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="about.html">About</a> &nbsp;·&nbsp;
+  <a href="contact.html">Contact</a>
+</footer>
+
+<nav class="bottom-nav">
+  <a href="index.html">🏠 Calculator</a>
+  <a href="about.html">About</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+</body>
+</html>
