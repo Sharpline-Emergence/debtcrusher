@@ -62,9 +62,9 @@
   .settings-bar { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem 2rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: end; }
   label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
   .input-prefix { position: relative; }
-  .input-prefix span { position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.9rem; pointer-events: none; }
+  .input-prefix span { position: absolute; left: 0.5rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.72rem; pointer-events: none; font-family: 'DM Mono', monospace; }
   input[type="number"], input[type="text"], select { width: 100%; background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 0.65rem 0.85rem; font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-  .input-prefix input { padding-left: 1.6rem; }
+  .input-prefix input { padding-left: 1.8rem; }
   input:focus, select:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(74,124,89,0.12); }
   .debt-section { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; margin-bottom: 1.5rem; }
   .debt-section-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; }
@@ -323,17 +323,14 @@
   function addDebtRow(name, balance, rate, minPay) {
     debtCount++;
     var id  = debtCount;
-    var sym = document.getElementById('currency').value;
     var row = document.createElement('div');
     row.className = 'debt-row';
     row.id = 'debt-' + id;
-    // Use short symbol for prefix to avoid overlap with multi-char currencies like CA$
-    var shortSym = sym.replace('CA$','$').replace('A$','$').replace('R$','$');
     row.innerHTML =
       '<div><input type="text" placeholder="e.g. Visa Card" value="' + (name||'') + '" id="dn-'+id+'" /></div>' +
-      '<div class="input-prefix"><span>'+shortSym+'</span><input type="number" placeholder="3500" min="0" value="'+(balance||'')+'" id="db-'+id+'" /></div>' +
-      '<div class="input-prefix"><span>%</span><input type="number" placeholder="19.9" min="0" step="0.01" value="'+(rate||'')+'" id="dr-'+id+'" style="padding-left:1.6rem" /></div>' +
-      '<div class="input-prefix"><span>'+shortSym+'</span><input type="number" placeholder="75" min="0" value="'+(minPay||'')+'" id="dm-'+id+'" /></div>' +
+      '<div class="input-prefix"><span>$</span><input type="number" placeholder="3500" min="0" value="'+(balance||'')+'" id="db-'+id+'" /></div>' +
+      '<div class="input-prefix"><span>%</span><input type="number" placeholder="19.9" min="0" step="0.01" value="'+(rate||'')+'" id="dr-'+id+'" style="padding-left:1.8rem" /></div>' +
+      '<div class="input-prefix"><span>$</span><input type="number" placeholder="75" min="0" value="'+(minPay||'')+'" id="dm-'+id+'" /></div>' +
       '<button class="btn-remove" onclick="removeDebt('+id+')">✕</button>';
     document.getElementById('debtRows').appendChild(row);
   }
