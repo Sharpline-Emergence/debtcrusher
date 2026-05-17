@@ -513,40 +513,48 @@
   }
 
   // ─── FIXED calcPayoff ────────────────────────────────────────────────────────
-  // Key fixes:
-  //   1. Interest is calculated on the balance BEFORE any payment this month
-  //   2. The minimum payment cap is checked AFTER interest is added (correct balance)
-  //   3. Extra payment rolls over fully when a debt is cleared mid-month
-  //   4. totalInterest accumulates from the raw interest float (no rounding per cycle)
+  // Root cause of identical results: freed minimum payments from paid-off debts
+  // were silently dropped instead of rolling into the extra pool. This rollover
+  // is EXACTLY what creates the difference between snowball and avalanche — without
+  // it both methods apply the same total dollars per month and produce equal results.
+  //
+  // All fixes applied:
+  //   1. Freed minPay rolls into extra the moment a debt is paid off
+  //   2. Interest accrues before payments (correct order)
+  //   3. Extra payment carries over fully if a debt is cleared mid-application
+  //   4. totalInterest accumulates as raw float — no per-cycle rounding error
   // ────────────────────────────────────────────────────────────────────────────
   function calcPayoff(debts, method, extraPayment) {
-    // Deep copy — preserve original balance for interest savings comparison
-    let ds = debts.map(d => ({ ...d, remaining: d.balance }));
+    // Deep copy — each call gets its own independent objects
+    let ds = debts.map(d => ({ ...d, remaining: d.balance, rolledOver: false }));
 
-    // Sort by strategy
+    // Sort by strategy — this is what makes the two methods differ
     if (method === 'snowball') {
-      ds.sort((a, b) => a.balance - b.balance);
+      ds.sort((a, b) => a.balance - b.balance);   // smallest balance first
     } else {
-      ds.sort((a, b) => b.rate - a.rate);
+      ds.sort((a, b) => b.rate - a.rate);          // highest rate first
     }
 
     let month = 0;
     let totalInterest = 0;
     const payoffOrder = [];
 
+    // rollingExtra accumulates freed minimum payments as debts are paid off.
+    // This is the engine of both methods — the snowball/avalanche EFFECT.
+    let rollingExtra = extraPayment;
+
     while (ds.some(d => d.remaining > 0.005) && month < 600) {
       month++;
 
-      // Step 1: accrue interest on every active debt FIRST
+      // Step 1: accrue interest on every active debt FIRST (before any payments)
       ds.forEach(d => {
         if (d.remaining <= 0.005) { d.remaining = 0; return; }
-        const monthlyRate = d.rate / 100 / 12;
-        const interest = d.remaining * monthlyRate;
-        totalInterest += interest;          // accumulate raw float — no rounding here
+        const interest = d.remaining * (d.rate / 100 / 12);
+        totalInterest += interest;   // raw float accumulation — no rounding here
         d.remaining += interest;
       });
 
-      // Step 2: apply minimum payments to ALL debts
+      // Step 2: apply each debt's minimum payment
       ds.forEach(d => {
         if (d.remaining <= 0.005) { d.remaining = 0; return; }
         const payment = Math.min(d.minPay, d.remaining);
@@ -554,8 +562,8 @@
         if (d.remaining < 0.005) d.remaining = 0;
       });
 
-      // Step 3: apply extra payment to priority debt(s), with full rollover
-      let extra = extraPayment;
+      // Step 3: apply rollingExtra to the priority debt, with full carry-over
+      let extra = rollingExtra;
       for (let i = 0; i < ds.length && extra > 0.005; i++) {
         if (ds[i].remaining <= 0) continue;
         const payment = Math.min(extra, ds[i].remaining);
@@ -564,11 +572,13 @@
         if (ds[i].remaining < 0.005) ds[i].remaining = 0;
       }
 
-      // Step 4: record payoff milestones
+      // Step 4: detect newly paid-off debts and roll their minPay into rollingExtra.
+      // THIS IS THE KEY FIX — without this, snowball === avalanche every time.
       ds.forEach(d => {
         if (d.remaining === 0 && !d.paidOffMonth) {
           d.paidOffMonth = month;
           payoffOrder.push({ name: d.name, month });
+          rollingExtra += d.minPay;   // freed payment permanently joins the extra pool
         }
       });
     }
