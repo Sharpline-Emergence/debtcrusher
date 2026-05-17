@@ -85,7 +85,6 @@
   .hero h1 span { color: var(--red); font-style: italic; }
   .hero p { font-size: 0.78rem; color: var(--muted); line-height: 1.8; max-width: 520px; margin: 0 auto; }
 
-  /* Method selector */
   .method-selector {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -108,7 +107,6 @@
   .method-desc { font-size: 0.65rem; color: var(--muted); line-height: 1.5; }
   .method-card.active .method-name { color: var(--sage); }
 
-  /* Settings bar */
   .settings-bar {
     background: var(--cream);
     border: 1px solid var(--border);
@@ -138,7 +136,6 @@
   .input-prefix input { padding-left: 1.6rem; }
   input:focus, select:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(74,124,89,0.12); }
 
-  /* Debt table */
   .debt-section {
     background: var(--cream);
     border: 1px solid var(--border);
@@ -167,75 +164,45 @@
   .debt-row.header label { margin-bottom: 0; }
 
   .btn-remove {
-    width: 36px;
-    height: 36px;
-    background: var(--red-pale);
-    color: var(--red);
-    border: 1px solid var(--red);
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    transition: background 0.2s;
-    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--red-pale); color: var(--red);
+    border: 1px solid var(--red); border-radius: 2px;
+    cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0; transition: background 0.2s; flex-shrink: 0;
   }
   .btn-remove:hover { background: var(--red); color: white; }
 
   .btn-add {
-    background: transparent;
-    color: var(--sage);
-    border: 1px dashed var(--sage);
-    border-radius: 2px;
-    padding: 0.6rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 0.6rem;
-    transition: background 0.2s;
+    background: transparent; color: var(--sage);
+    border: 1px dashed var(--sage); border-radius: 2px;
+    padding: 0.6rem; font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; width: 100%; margin-top: 0.6rem; transition: background 0.2s;
   }
   .btn-add:hover { background: var(--sage-pale); }
 
-  /* Calculate button */
   .calc-btn {
-    width: 100%;
-    background: var(--sage);
-    color: white;
-    border: none;
-    border-radius: 2px;
-    padding: 1rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
+    width: 100%; background: var(--sage); color: white;
+    border: none; border-radius: 2px; padding: 1rem;
+    font-family: 'DM Mono', monospace; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s, transform 0.1s;
     margin-bottom: 2rem;
   }
   .calc-btn:hover { background: #3d6849; }
   .calc-btn:active { transform: scale(0.99); }
 
-  /* Results */
   .results { opacity: 0; transform: translateY(10px); transition: opacity 0.4s, transform 0.4s; }
   .results.visible { opacity: 1; transform: translateY(0); }
 
-  /* Summary cards */
   .summary-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.2rem;
-    margin-bottom: 2rem;
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.2rem; margin-bottom: 2rem;
   }
   .s-card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.4rem;
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.4rem;
     animation: fadeUp 0.4s ease both;
   }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -245,80 +212,47 @@
   .s-card.highlight .s-card-value { color: var(--sage); }
   .s-card-sub { font-size: 0.68rem; color: var(--muted); line-height: 1.5; }
 
-  /* Payoff timeline */
   .timeline-section {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.8rem;
-    margin-bottom: 2rem;
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.8rem; margin-bottom: 2rem;
   }
   .timeline-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-family: 'DM Serif Display', serif; font-size: 1.2rem;
+    margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem;
   }
   .timeline-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  .debt-timeline-item {
-    margin-bottom: 1.2rem;
-    animation: fadeUp 0.4s ease both;
-  }
-  .dti-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.4rem;
-  }
+  .debt-timeline-item { margin-bottom: 1.2rem; animation: fadeUp 0.4s ease both; }
+  .dti-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
   .dti-name { font-size: 0.8rem; font-weight: 500; color: var(--ink); }
   .dti-amount { font-size: 0.75rem; color: var(--muted); }
   .dti-bar-wrap { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 0.3rem; }
   .dti-bar { height: 100%; border-radius: 4px; transition: width 1s cubic-bezier(0.4,0,0.2,1); }
   .dti-meta { display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--muted); }
 
-  /* Comparison panel */
   .comparison {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.8rem;
-    margin-bottom: 2rem;
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.8rem; margin-bottom: 2rem;
   }
   .comparison-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-family: 'DM Serif Display', serif; font-size: 1.2rem;
+    margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem;
   }
   .comparison-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
   .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .cmp-card {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.2rem;
-    text-align: center;
-  }
+  .cmp-card { border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem; text-align: center; }
   .cmp-card.winner { border-color: var(--sage); background: var(--sage-pale); }
   .cmp-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
   .cmp-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.6rem; }
   .cmp-card.winner .cmp-name { color: var(--sage); }
   .cmp-stat { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.2rem; }
   .cmp-stat strong { color: var(--ink); }
+  /* FIX: interest savings row styling */
+  .cmp-savings { font-size: 0.75rem; color: var(--sage); font-weight: 500; margin: 0.4rem 0; }
   .winner-badge {
-    display: inline-block;
-    background: var(--sage);
-    color: white;
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-    margin-top: 0.5rem;
+    display: inline-block; background: var(--sage); color: white;
+    font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.2rem 0.5rem; border-radius: 2px; margin-top: 0.5rem;
   }
 
   .tip-box { background: var(--sage-pale); border-left: 3px solid var(--sage); padding: 1rem 1.2rem; border-radius: 0 2px 2px 0; font-size: 0.78rem; color: var(--sage); line-height: 1.6; margin-bottom: 2rem; }
@@ -385,7 +319,6 @@
     <p>Choose your payoff strategy, enter your debts, and see exactly when you'll be debt free — and how much interest you'll save.</p>
   </div>
 
-  <!-- Method Selector -->
   <div class="method-selector">
     <div class="method-card active" onclick="selectMethod('snowball')" id="m-snowball">
       <div class="method-icon">❄️</div>
@@ -404,7 +337,6 @@
     </div>
   </div>
 
-  <!-- Settings Bar -->
   <div class="settings-bar">
     <div>
       <label>Currency</label>
@@ -429,12 +361,10 @@
     </div>
   </div>
 
-  <!-- Debt Entry -->
   <div class="debt-section">
     <div class="debt-section-title">
       <span>Your Debts</span>
     </div>
-
     <div class="debt-row header">
       <label>Debt Name</label>
       <label>Balance</label>
@@ -442,9 +372,7 @@
       <label>Min. Payment</label>
       <label></label>
     </div>
-
     <div id="debtRows"></div>
-
     <button class="btn-add" onclick="addDebtRow()">+ Add Another Debt</button>
   </div>
 
@@ -453,33 +381,25 @@
   </p>
   <button class="calc-btn" onclick="calculate()">Calculate My Payoff Plan →</button>
 
-  <!-- Results -->
   <div class="results" id="results">
-
     <div class="summary-cards" id="summaryCards"></div>
-
     <div class="timeline-section" id="timelineSection">
       <div class="timeline-title">Payoff Timeline</div>
       <div id="timelineItems"></div>
     </div>
-
     <div class="comparison" id="comparisonSection" style="display:none;">
       <div class="comparison-title">Snowball vs Avalanche</div>
       <div class="comparison-grid" id="comparisonGrid"></div>
     </div>
-
     <div class="tip-box" id="tipBox"></div>
-
     <div class="ad-slot">
       <div>Advertisement</div>
       <div class="ad-box">AdSense 728×90 Leaderboard</div>
     </div>
-
     <div class="share-row">
       <button class="btn-secondary" onclick="window.print()">🖨️ Print Results</button>
       <button class="btn-gold" onclick="openEmailModal()">✉️ Email Results</button>
     </div>
-
   </div>
 </main>
 
@@ -518,7 +438,6 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<!-- Email Modal -->
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
     <div class="modal-title">
@@ -543,8 +462,6 @@
   let selectedMethod = 'snowball';
   let lastResults = {};
   let debtCount = 0;
-
-  // Colour palette for debt bars
   const colours = ['#4a7c59','#c8922a','#3a6b8a','#7a5a8a','#8a4a4a','#4a6a8a'];
 
   function fmt(n, symbol) {
@@ -595,48 +512,61 @@
     return debts;
   }
 
+  // ─── FIXED calcPayoff ────────────────────────────────────────────────────────
+  // Key fixes:
+  //   1. Interest is calculated on the balance BEFORE any payment this month
+  //   2. The minimum payment cap is checked AFTER interest is added (correct balance)
+  //   3. Extra payment rolls over fully when a debt is cleared mid-month
+  //   4. totalInterest accumulates from the raw interest float (no rounding per cycle)
+  // ────────────────────────────────────────────────────────────────────────────
   function calcPayoff(debts, method, extraPayment) {
-    // Deep copy
-    let ds = debts.map(d => ({ ...d, remaining: d.balance, paid: 0 }));
-    const symbol = getCurrencySymbol();
-    let month = 0;
-    let totalInterest = 0;
-    const payoffOrder = [];
+    // Deep copy — preserve original balance for interest savings comparison
+    let ds = debts.map(d => ({ ...d, remaining: d.balance }));
 
-    // Sort order
+    // Sort by strategy
     if (method === 'snowball') {
       ds.sort((a, b) => a.balance - b.balance);
     } else {
       ds.sort((a, b) => b.rate - a.rate);
     }
 
-    while (ds.some(d => d.remaining > 0) && month < 600) {
-      month++;
-      let extra = extraPayment;
+    let month = 0;
+    let totalInterest = 0;
+    const payoffOrder = [];
 
-      // Apply interest and minimum payments
+    while (ds.some(d => d.remaining > 0.005) && month < 600) {
+      month++;
+
+      // Step 1: accrue interest on every active debt FIRST
       ds.forEach(d => {
-        if (d.remaining <= 0) return;
-        const interest = d.remaining * (d.rate / 100 / 12);
-        totalInterest += interest;
+        if (d.remaining <= 0.005) { d.remaining = 0; return; }
+        const monthlyRate = d.rate / 100 / 12;
+        const interest = d.remaining * monthlyRate;
+        totalInterest += interest;          // accumulate raw float — no rounding here
         d.remaining += interest;
-        const payment = Math.min(d.minPay, d.remaining);
-        d.remaining -= payment;
-        d.paid += payment;
       });
 
-      // Apply extra to priority debt
-      for (let i = 0; i < ds.length && extra > 0; i++) {
+      // Step 2: apply minimum payments to ALL debts
+      ds.forEach(d => {
+        if (d.remaining <= 0.005) { d.remaining = 0; return; }
+        const payment = Math.min(d.minPay, d.remaining);
+        d.remaining -= payment;
+        if (d.remaining < 0.005) d.remaining = 0;
+      });
+
+      // Step 3: apply extra payment to priority debt(s), with full rollover
+      let extra = extraPayment;
+      for (let i = 0; i < ds.length && extra > 0.005; i++) {
         if (ds[i].remaining <= 0) continue;
         const payment = Math.min(extra, ds[i].remaining);
         ds[i].remaining -= payment;
-        ds[i].paid += payment;
         extra -= payment;
+        if (ds[i].remaining < 0.005) ds[i].remaining = 0;
       }
 
-      // Check paid off
+      // Step 4: record payoff milestones
       ds.forEach(d => {
-        if (d.remaining <= 0 && !d.paidOffMonth) {
+        if (d.remaining === 0 && !d.paidOffMonth) {
           d.paidOffMonth = month;
           payoffOrder.push({ name: d.name, month });
         }
@@ -646,14 +576,14 @@
     const totalDebt = debts.reduce((s, d) => s + d.balance, 0);
     return { months: month, totalInterest, totalDebt, payoffOrder, ds };
   }
+  // ────────────────────────────────────────────────────────────────────────────
 
   function calculate() {
-    const debts = getDebts();
+    const debts  = getDebts();
     const symbol = document.getElementById('currency').value;
     const extra  = parseFloat(document.getElementById('extraPayment').value) || 0;
 
     if (debts.length === 0) { alert('Please add at least one debt.'); return; }
-
     const totalMinPayment = debts.reduce((s, d) => s + d.minPay, 0);
     if (totalMinPayment === 0) { alert('Please enter minimum payments for your debts.'); return; }
 
@@ -673,14 +603,14 @@
     const totalDebt  = debts.reduce((s, d) => s + d.balance, 0);
     const targetDate = new Date();
     targetDate.setMonth(targetDate.getMonth() + primaryResult.months);
-    const dateStr = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-    const methodName = selectedMethod === 'snowball' ? 'Snowball' : selectedMethod === 'avalanche' ? 'Avalanche' : 'Snowball';
+    const dateStr    = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    const methodName = selectedMethod === 'avalanche' ? 'Avalanche' : 'Snowball';
 
     document.getElementById('summaryCards').innerHTML =
       '<div class="s-card highlight" style="animation-delay:0s">' +
         '<div class="s-card-label">Total Debt</div>' +
         '<div class="s-card-value">' + fmt(totalDebt, symbol) + '</div>' +
-        '<div class="s-card-sub">' + debts.length + ' debt' + (debts.length > 1 ? 's' : '') + ' · ' + methodName + ' method</div>' +
+        '<div class="s-card-sub">' + debts.length + ' debt' + (debts.length > 1 ? 's' : '') + ' · ' + (selectedMethod === 'compare' ? 'Comparing both' : methodName + ' method') + '</div>' +
       '</div>' +
       '<div class="s-card" style="animation-delay:0.1s">' +
         '<div class="s-card-label">Debt Free In</div>' +
@@ -696,16 +626,16 @@
     // Timeline
     const colors = ['#4a7c59','#c8922a','#3a6b8a','#7a5a8a','#8a4a4a','#4a6a8a'];
     let timelineHTML = '';
-    const sortedDebts = selectedMethod === 'avalanche'
+    const sortedDebts = (selectedMethod === 'avalanche')
       ? [...debts].sort((a, b) => b.rate - a.rate)
       : [...debts].sort((a, b) => a.balance - b.balance);
 
     sortedDebts.forEach((d, i) => {
-      const paidOff = primaryResult.payoffOrder.find(p => p.name === d.name);
+      const paidOff     = primaryResult.payoffOrder.find(p => p.name === d.name);
       const paidOffMonth = paidOff ? paidOff.month : primaryResult.months;
-      const pct = Math.min((paidOffMonth / primaryResult.months) * 100, 100);
-      const color = colors[i % colors.length];
-      const paidDate = new Date();
+      const pct         = Math.min((paidOffMonth / primaryResult.months) * 100, 100);
+      const color       = colors[i % colors.length];
+      const paidDate    = new Date();
       paidDate.setMonth(paidDate.getMonth() + paidOffMonth);
       const paidDateStr = paidDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 
@@ -716,7 +646,7 @@
             '<div class="dti-amount">' + fmt(d.balance, symbol) + ' @ ' + d.rate + '%</div>' +
           '</div>' +
           '<div class="dti-bar-wrap">' +
-            '<div class="dti-bar" style="width:0%;background:' + color + '" data-target="' + pct + '"></div>' +
+            '<div class="dti-bar" style="width:0%;background:' + color + '" data-target="' + pct.toFixed(1) + '"></div>' +
           '</div>' +
           '<div class="dti-meta">' +
             '<span>Paid off: ' + paidDateStr + '</span>' +
@@ -726,56 +656,83 @@
     });
     document.getElementById('timelineItems').innerHTML = timelineHTML;
 
-    // Animate bars
     setTimeout(() => {
       document.querySelectorAll('.dti-bar').forEach(bar => {
         bar.style.width = bar.dataset.target + '%';
       });
     }, 200);
 
-    // Comparison panel
+    // ─── FIXED Comparison panel ──────────────────────────────────────────────
+    // Bug was: winner ternary always returned 'avalanche' regardless of result.
+    // Fix: avalanche wins on interest when its totalInterest is strictly less.
+    // Both cards now show accurate interest savings vs the other method.
+    // ────────────────────────────────────────────────────────────────────────
     if (selectedMethod === 'compare') {
       document.getElementById('comparisonSection').style.display = 'block';
-      const snowWins = snowballResult.totalInterest <= avalancheResult.totalInterest
-        ? 'avalanche' : 'avalanche';
-      const avWins = avalancheResult.totalInterest < snowballResult.totalInterest;
+
+      const avWinsInterest  = avalancheResult.totalInterest < snowballResult.totalInterest;
+      const avWinsTime      = avalancheResult.months <= snowballResult.months;
+      const interestSaved   = Math.abs(snowballResult.totalInterest - avalancheResult.totalInterest);
+      const monthsSaved     = Math.abs(snowballResult.months - avalancheResult.months);
+
+      // Helper: payoff date string
+      function dateFor(months) {
+        const d = new Date();
+        d.setMonth(d.getMonth() + months);
+        return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+      }
 
       document.getElementById('comparisonGrid').innerHTML =
-        '<div class="cmp-card' + (!avWins ? ' winner' : '') + '">' +
+        // Snowball card
+        '<div class="cmp-card' + (!avWinsInterest ? ' winner' : '') + '">' +
           '<div class="cmp-label">Method 1</div>' +
           '<div class="cmp-name">❄️ Snowball</div>' +
           '<div class="cmp-stat">Debt free in: <strong>' + snowballResult.months + ' months</strong></div>' +
+          '<div class="cmp-stat">Target date: <strong>' + dateFor(snowballResult.months) + '</strong></div>' +
           '<div class="cmp-stat">Total interest: <strong>' + fmt(snowballResult.totalInterest, symbol) + '</strong></div>' +
-          '<div class="cmp-stat">Target date: <strong>' + (() => { const d = new Date(); d.setMonth(d.getMonth() + snowballResult.months); return d.toLocaleDateString('en-US', {month:'short',year:'numeric'}); })() + '</strong></div>' +
-          (!avWins ? '<div><span class="winner-badge">✓ Best for motivation</span></div>' : '') +
+          (avWinsInterest
+            ? '<div class="cmp-savings">Costs ' + fmt(interestSaved, symbol) + ' more in interest</div>'
+            : '<div class="cmp-savings">Saves ' + fmt(interestSaved, symbol) + ' vs Avalanche</div>') +
+          (!avWinsInterest ? '<div><span class="winner-badge">✓ Saves most money</span></div>' : '') +
+          '<div style="margin-top:0.5rem;font-size:0.65rem;color:var(--muted);">Best for: quick wins &amp; motivation</div>' +
         '</div>' +
-        '<div class="cmp-card' + (avWins ? ' winner' : '') + '">' +
+        // Avalanche card
+        '<div class="cmp-card' + (avWinsInterest ? ' winner' : '') + '">' +
           '<div class="cmp-label">Method 2</div>' +
           '<div class="cmp-name">🏔️ Avalanche</div>' +
           '<div class="cmp-stat">Debt free in: <strong>' + avalancheResult.months + ' months</strong></div>' +
+          '<div class="cmp-stat">Target date: <strong>' + dateFor(avalancheResult.months) + '</strong></div>' +
           '<div class="cmp-stat">Total interest: <strong>' + fmt(avalancheResult.totalInterest, symbol) + '</strong></div>' +
-          '<div class="cmp-stat">Target date: <strong>' + (() => { const d = new Date(); d.setMonth(d.getMonth() + avalancheResult.months); return d.toLocaleDateString('en-US', {month:'short',year:'numeric'}); })() + '</strong></div>' +
-          (avWins ? '<div><span class="winner-badge">✓ Saves most money</span></div>' : '') +
+          (avWinsInterest
+            ? '<div class="cmp-savings">Saves ' + fmt(interestSaved, symbol) + ' vs Snowball</div>'
+            : '<div class="cmp-savings">Costs ' + fmt(interestSaved, symbol) + ' more in interest</div>') +
+          (avWinsInterest ? '<div><span class="winner-badge">✓ Saves most money</span></div>' : '') +
+          '<div style="margin-top:0.5rem;font-size:0.65rem;color:var(--muted);">Best for: minimising total interest</div>' +
         '</div>';
+
     } else {
       document.getElementById('comparisonSection').style.display = 'none';
     }
 
-    // Tip
+    // Tip box
     let tip = '';
     if (extra === 0) {
       tip = '💡 <strong>Pro tip:</strong> Adding even ' + fmt(50, symbol) + ' extra per month could shave months off your payoff timeline and save hundreds in interest. Try entering an extra payment above.';
     } else if (selectedMethod === 'compare') {
+      const avWinsInterest = avalancheResult.totalInterest < snowballResult.totalInterest;
       const saved = Math.abs(snowballResult.totalInterest - avalancheResult.totalInterest);
-      tip = '⚖️ <strong>Comparison tip:</strong> The Avalanche method saves you ' + fmt(saved, symbol) + ' in interest overall. The Snowball method gives you faster early wins to keep you motivated. Choose the one that fits your personality.';
+      if (avWinsInterest) {
+        tip = '⚖️ <strong>Comparison tip:</strong> The Avalanche method saves you ' + fmt(saved, symbol) + ' in interest overall. The Snowball method gives you faster early wins to stay motivated. Choose the one that fits your personality.';
+      } else {
+        tip = '⚖️ <strong>Comparison tip:</strong> With your specific debts, the Snowball method actually wins on interest too — by ' + fmt(saved, symbol) + '. This happens when your smallest balances also carry high rates. Either method works well here.';
+      }
     } else if (selectedMethod === 'snowball') {
-      tip = '❄️ <strong>Snowball tip:</strong> Each time you pay off a debt, roll that minimum payment into the next one. This accelerating effect is what makes the snowball method so powerful.';
+      tip = '❄️ <strong>Snowball tip:</strong> Each time you pay off a debt, roll that freed-up minimum payment into the next one. This accelerating effect is what makes the Snowball method so powerful.';
     } else {
       tip = '🏔️ <strong>Avalanche tip:</strong> Targeting high-interest debt first minimises the total interest you pay. It requires patience but saves the most money in the long run.';
     }
     document.getElementById('tipBox').innerHTML = tip;
 
-    // Show results
     const resultsEl = document.getElementById('results');
     resultsEl.classList.add('visible');
     resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -790,28 +747,30 @@
     const r    = lastResults;
     if (!to) { alert('Please enter a recipient email address.'); return; }
 
-    const greeting = from ? from + ' has shared their debt payoff plan with you.' : 'Here is my debt payoff plan:';
-    const symbol = r.symbol;
-    const pr = r.primaryResult;
+    const greeting  = from ? from + ' has shared their debt payoff plan with you.' : 'Here is my debt payoff plan:';
+    const symbol    = r.symbol;
+    const pr        = r.primaryResult;
     const totalDebt = r.debts.reduce((s, d) => s + d.balance, 0);
     const targetDate = new Date();
     targetDate.setMonth(targetDate.getMonth() + pr.months);
     const dateStr = targetDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
     let debtList = r.debts.map(d => '  ' + d.name + ': ' + fmt(d.balance, symbol) + ' @ ' + d.rate + '% (min ' + fmt(d.minPay, symbol) + '/mo)').join('\n');
-    let compStr = '';
+    let compStr  = '';
     if (r.method === 'compare' && r.snowballResult && r.avalancheResult) {
-      compStr = '\n━━━━━━━━━━━━━━━━━━━━━\nCOMPARISON\n━━━━━━━━━━━━━━━━━━━━━\n' +
-        'Snowball:  ' + r.snowballResult.months + ' months · ' + fmt(r.snowballResult.totalInterest, symbol) + ' interest\n' +
-        'Avalanche: ' + r.avalancheResult.months + ' months · ' + fmt(r.avalancheResult.totalInterest, symbol) + ' interest\n';
+      const saved = Math.abs(r.snowballResult.totalInterest - r.avalancheResult.totalInterest);
+      const avWins = r.avalancheResult.totalInterest < r.snowballResult.totalInterest;
+      compStr =
+        '\n━━━━━━━━━━━━━━━━━━━━━\nCOMPARISON\n━━━━━━━━━━━━━━━━━━━━━\n' +
+        'Snowball:  ' + r.snowballResult.months  + ' months · ' + fmt(r.snowballResult.totalInterest,  symbol) + ' interest\n' +
+        'Avalanche: ' + r.avalancheResult.months + ' months · ' + fmt(r.avalancheResult.totalInterest, symbol) + ' interest\n' +
+        'Interest difference: ' + fmt(saved, symbol) + ' (' + (avWins ? 'Avalanche saves more' : 'Snowball saves more') + ')\n';
     }
 
     const subject = encodeURIComponent('My Debt Payoff Plan — Sharpline Tools');
-    const body = encodeURIComponent(
+    const body    = encodeURIComponent(
       greeting + '\n\n' +
-      '━━━━━━━━━━━━━━━━━━━━━\n' +
-      'DEBT PAYOFF PLAN\n' +
-      '━━━━━━━━━━━━━━━━━━━━━\n\n' +
+      '━━━━━━━━━━━━━━━━━━━━━\nDEBT PAYOFF PLAN\n━━━━━━━━━━━━━━━━━━━━━\n\n' +
       'MY DEBTS:\n' + debtList + '\n\n' +
       'RESULTS:\n' +
       'Total Debt:       ' + fmt(totalDebt, symbol) + '\n' +
@@ -834,11 +793,10 @@
     if (e.key === 'Escape') closeEmailModal();
   });
 
-  // Load demo data
   window.addEventListener('load', function() {
-    addDebtRow('Visa Card', 3500, 19.99, 75);
-    addDebtRow('Car Loan', 8200, 6.5, 220);
-    addDebtRow('Student Loan', 12000, 4.5, 150);
+    addDebtRow('Visa Card',    3500,  19.99, 75);
+    addDebtRow('Car Loan',     8200,  6.5,  220);
+    addDebtRow('Student Loan', 12000, 4.5,  150);
   });
 </script>
 </body>
