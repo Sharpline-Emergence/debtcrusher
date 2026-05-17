@@ -327,11 +327,13 @@
     var row = document.createElement('div');
     row.className = 'debt-row';
     row.id = 'debt-' + id;
+    // Use short symbol for prefix to avoid overlap with multi-char currencies like CA$
+    var shortSym = sym.replace('CA$','$').replace('A$','$').replace('R$','$');
     row.innerHTML =
       '<div><input type="text" placeholder="e.g. Visa Card" value="' + (name||'') + '" id="dn-'+id+'" /></div>' +
-      '<div class="input-prefix"><span>'+sym+'</span><input type="number" placeholder="3500" min="0" value="'+(balance||'')+'" id="db-'+id+'" /></div>' +
+      '<div class="input-prefix"><span>'+shortSym+'</span><input type="number" placeholder="3500" min="0" value="'+(balance||'')+'" id="db-'+id+'" /></div>' +
       '<div class="input-prefix"><span>%</span><input type="number" placeholder="19.9" min="0" step="0.01" value="'+(rate||'')+'" id="dr-'+id+'" style="padding-left:1.6rem" /></div>' +
-      '<div class="input-prefix"><span>'+sym+'</span><input type="number" placeholder="75" min="0" value="'+(minPay||'')+'" id="dm-'+id+'" /></div>' +
+      '<div class="input-prefix"><span>'+shortSym+'</span><input type="number" placeholder="75" min="0" value="'+(minPay||'')+'" id="dm-'+id+'" /></div>' +
       '<button class="btn-remove" onclick="removeDebt('+id+')">✕</button>';
     document.getElementById('debtRows').appendChild(row);
   }
@@ -619,12 +621,15 @@
   document.addEventListener('keydown', function(e){ if (e.key==='Escape') closeEmailModal(); });
 
   window.addEventListener('load', function() {
-    // These debts clearly differentiate Snowball vs Avalanche:
-    // Snowball attacks Store Card first (smallest balance $800)
-    // Avalanche attacks Credit Card first (highest rate 21.99%)
-    addDebtRow('Store Card',   800,  18.00, 25);
-    addDebtRow('Credit Card', 5500,  21.99, 90);
-    addDebtRow('Car Loan',    9000,   6.50, 175);
+    // Total minimums = $25 + $85 + $180 = $290/month
+    // Surplus each month = user can add extra, or methods differentiate via rollover
+    // Snowball targets Store Card first (smallest $1,200 balance)
+    // Avalanche targets Credit Card first (highest 24.99% rate)
+    // With Snowball: Credit Card @ 24.99% keeps growing while Store Card is cleared
+    // With Avalanche: highest interest stopped first = less total interest paid
+    addDebtRow('Store Card',   1200,  18.00, 25);
+    addDebtRow('Credit Card',  6800,  24.99, 85);
+    addDebtRow('Car Loan',    11000,   5.90, 180);
   });
 </script>
 </body>
