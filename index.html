@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-adsense-account" content="ca-pub-8775883855490271">
 <title>Free Debt Payoff Calculator — Snowball &amp; Avalanche | Sharpline — DebtCrusher</title>
 <meta name="description" content="Free debt payoff calculator using the Snowball or Avalanche method. See exactly when you will be debt free and how much interest you will save. No sign-up required.">
 <meta name="keywords" content="debt payoff calculator, snowball method, avalanche method, debt free calculator, credit card payoff, debt calculator, pay off debt faster">
@@ -22,171 +21,128 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0f1a0f;
-    --paper: #f5f0e8;
-    --sage: #4a7c59;
-    --sage-light: #7aaa8a;
-    --sage-pale: #d4e8da;
-    --gold: #c8922a;
-    --cream: #faf7f0;
-    --muted: #8a8a7a;
-    --border: #d8d0c0;
-    --red: #b84444;
-    --red-pale: #f5dada;
-    --blue: #3a6b8a;
-    --blue-pale: #c8dce8;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--paper); color: var(--ink); font-family: 'DM Mono', monospace; min-height: 100vh; padding-bottom: 5rem; }
-  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 100; opacity: 0.5; }
-  header { padding: 2.5rem 3rem 1.5rem; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); }
-  .logo { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--sage); letter-spacing: -0.02em; }
-  .logo span { color: var(--gold); }
-  .tagline { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; }
-  nav { position: fixed; bottom: 0; left: 0; right: 0; padding: 0.8rem 3rem; border-top: 1px solid var(--border); background: var(--cream); display: flex; gap: 1.5rem; font-size: 0.72rem; z-index: 99; justify-content: center; box-shadow: 0 -2px 12px rgba(15,26,15,0.06); }
-  nav a { color: var(--sage); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-  nav a:hover { color: var(--gold); }
-  main { max-width: 920px; margin: 2.5rem auto; padding: 0 2rem; }
-  .hero { text-align: center; margin-bottom: 2.5rem; }
-  .hero h1 { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.2; }
-  .hero h1 span { color: var(--red); font-style: italic; }
-  .hero p { font-size: 0.78rem; color: var(--muted); line-height: 1.8; max-width: 520px; margin: 0 auto; }
-  .method-selector { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
-  .method-card { background: var(--cream); border: 2px solid var(--border); border-radius: 4px; padding: 1.2rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; text-align: center; }
-  .method-card:hover { border-color: var(--sage); }
-  .method-card.active { border-color: var(--sage); background: var(--sage-pale); }
-  .method-icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
-  .method-name { font-size: 0.78rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
-  .method-desc { font-size: 0.65rem; color: var(--muted); line-height: 1.5; }
-  .method-card.active .method-name { color: var(--sage); }
-  .settings-bar { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem 2rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: end; }
-  label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
-  .input-prefix { position: relative; }
-  .input-prefix span { position: absolute; left: 0.5rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.72rem; pointer-events: none; font-family: 'DM Mono', monospace; }
-  input[type="number"], input[type="text"], select { width: 100%; background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 0.65rem 0.85rem; font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-  .input-prefix input { padding-left: 1.8rem; }
-  input:focus, select:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(74,124,89,0.12); }
-  .debt-section { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; margin-bottom: 1.5rem; }
-  .debt-section-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; }
-  .debt-row { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 36px; gap: 0.6rem; margin-bottom: 0.6rem; align-items: end; }
-  .btn-remove { width: 36px; height: 36px; background: var(--red-pale); color: var(--red); border: 1px solid var(--red); border-radius: 2px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s; flex-shrink: 0; }
-  .btn-remove:hover { background: var(--red); color: white; }
-  .btn-add { background: transparent; color: var(--sage); border: 1px dashed var(--sage); border-radius: 2px; padding: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; width: 100%; margin-top: 0.6rem; transition: background 0.2s; }
-  .btn-add:hover { background: var(--sage-pale); }
-  .calc-btn { width: 100%; background: var(--sage); color: white; border: none; border-radius: 2px; padding: 1rem; font-family: 'DM Mono', monospace; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.1s; margin-bottom: 2rem; }
-  .calc-btn:hover { background: #3d6849; }
-  .calc-btn:active { transform: scale(0.99); }
-  .results { opacity: 0; transform: translateY(10px); transition: opacity 0.4s, transform 0.4s; }
-  .results.visible { opacity: 1; transform: translateY(0); }
-  .summary-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem; }
-  .s-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.4rem; animation: fadeUp 0.4s ease both; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  .s-card.highlight { background: var(--sage-pale); border-color: var(--sage); }
-  .s-card-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
-  .s-card-value { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--ink); line-height: 1.1; margin-bottom: 0.2rem; }
-  .s-card.highlight .s-card-value { color: var(--sage); }
-  .s-card-sub { font-size: 0.68rem; color: var(--muted); line-height: 1.5; }
-  .timeline-section { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; margin-bottom: 2rem; }
-  .timeline-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
-  .timeline-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .debt-timeline-item { margin-bottom: 1.2rem; animation: fadeUp 0.4s ease both; }
-  .dti-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
-  .dti-name { font-size: 0.8rem; font-weight: 500; color: var(--ink); }
-  .dti-amount { font-size: 0.75rem; color: var(--muted); }
-  .dti-bar-wrap { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 0.3rem; }
-  .dti-bar { height: 100%; border-radius: 4px; transition: width 1s cubic-bezier(0.4,0,0.2,1); }
-  .dti-meta { display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--muted); }
-  .comparison { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; margin-bottom: 2rem; }
-  .comparison-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
-  .comparison-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .cmp-card { border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem; text-align: center; }
-  .cmp-card.winner { border-color: var(--sage); background: var(--sage-pale); }
-  .cmp-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
-  .cmp-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.6rem; }
-  .cmp-card.winner .cmp-name { color: var(--sage); }
-  .cmp-stat { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.2rem; }
-  .cmp-stat strong { color: var(--ink); }
-  .winner-badge { display: inline-block; background: var(--sage); color: white; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 2px; margin-top: 0.5rem; }
-  .tip-box { background: var(--sage-pale); border-left: 3px solid var(--sage); padding: 1rem 1.2rem; border-radius: 0 2px 2px 0; font-size: 0.78rem; color: var(--sage); line-height: 1.6; margin-bottom: 2rem; }
-  .tip-box strong { color: var(--ink); }
-  .ad-slot { background: var(--cream); border: 1px dashed var(--border); text-align: center; padding: 0.8rem; color: var(--muted); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-bottom: 2rem; }
-  .ad-box { background: var(--border); height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 2px; margin-top: 0.3rem; color: var(--muted); font-size: 0.7rem; }
-  .share-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 2rem; }
-  .btn-secondary { width: 100%; background: transparent; color: var(--sage); border: 1px solid var(--sage); border-radius: 2px; padding: 0.85rem; font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
-  .btn-secondary:hover { background: var(--sage-pale); }
-  .btn-gold { width: 100%; background: var(--gold); color: white; border: none; border-radius: 2px; padding: 0.85rem; font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
-  .btn-gold:hover { background: #b07820; }
-  .tools-panel { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; margin-bottom: 2rem; }
-  .tools-panel-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--ink); padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
-  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .tool-card { background: var(--paper); border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem; text-decoration: none; color: var(--ink); transition: border-color 0.2s, box-shadow 0.2s; display: block; }
-  .tool-card:hover { border-color: var(--sage); box-shadow: 0 2px 8px rgba(74,124,89,0.12); }
-  .tool-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
-  .tool-name { font-size: 0.8rem; font-weight: 500; color: var(--sage); margin-bottom: 0.3rem; }
-  .tool-desc { font-size: 0.68rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.5rem; }
-  .tool-link { font-size: 0.65rem; color: var(--gold); letter-spacing: 0.05em; }
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,26,15,0.5); z-index: 200; align-items: center; justify-content: center; }
-  .modal-overlay.open { display: flex; }
-  .modal { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; width: 100%; max-width: 400px; margin: 1rem; }
-  .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--sage); }
-  .modal-close { float: right; background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; width: auto; padding: 0; margin: 0; line-height: 1; }
-  .modal-close:hover { background: none; color: var(--ink); transform: none; }
-  .modal input { width: 100%; background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 0.65rem 0.85rem; font-family: 'DM Mono', monospace; font-size: 0.88rem; color: var(--ink); outline: none; margin-bottom: 1rem; }
-  .modal input:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(74,124,89,0.12); }
-  .modal label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
-  .modal-note { font-size: 0.65rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5; }
-  footer { text-align: center; padding: 1.5rem 2rem; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; border-top: 1px solid var(--border); margin-top: 1rem; }
-  footer a { color: var(--sage); text-decoration: none; }
-  @media (max-width: 640px) {
-    header { padding: 1.5rem; flex-direction: column; gap: 0.3rem; }
-    .method-selector { grid-template-columns: 1fr; }
-    .settings-bar { grid-template-columns: 1fr; }
-    .debt-row { grid-template-columns: 1fr 1fr; }
-    .summary-cards { grid-template-columns: 1fr; }
-    .comparison-grid { grid-template-columns: 1fr; }
-    .share-row { grid-template-columns: 1fr; }
-    .tools-grid { grid-template-columns: 1fr; }
-    nav { padding: 0.8rem 1rem; gap: 0.8rem; font-size: 0.65rem; }
-  }
-  @media print {
-    body::before, nav, .ad-slot, .share-row, .btn-add, .btn-remove, .calc-btn, .tools-panel { display: none !important; }
-    .results { opacity: 1 !important; transform: none !important; }
-  }
+  :root { --ink:#0f1a0f;--paper:#f5f0e8;--sage:#4a7c59;--sage-light:#7aaa8a;--sage-pale:#d4e8da;--gold:#c8922a;--cream:#faf7f0;--muted:#8a8a7a;--border:#d8d0c0;--red:#b84444;--red-pale:#f5dada;--blue:#3a6b8a;--blue-pale:#c8dce8; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;padding-bottom:5rem;}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.5;}
+  header{padding:2.5rem 3rem 1.5rem;display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--border);}
+  .logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em;}
+  .logo span{color:var(--gold);}
+  .tagline{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;}
+  nav{position:fixed;bottom:0;left:0;right:0;padding:0.8rem 3rem;border-top:1px solid var(--border);background:var(--cream);display:flex;gap:1.5rem;font-size:0.72rem;z-index:99;justify-content:center;box-shadow:0 -2px 12px rgba(15,26,15,0.06);}
+  nav a{color:var(--sage);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  nav a:hover{color:var(--gold);}
+  main{max-width:920px;margin:2.5rem auto;padding:0 2rem;}
+  .hero{text-align:center;margin-bottom:2.5rem;}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.2;}
+  .hero h1 span{color:var(--red);font-style:italic;}
+  .hero p{font-size:0.78rem;color:var(--muted);line-height:1.8;max-width:520px;margin:0 auto;}
+  .method-selector{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem;}
+  .method-card{background:var(--cream);border:2px solid var(--border);border-radius:4px;padding:1.2rem;cursor:pointer;transition:border-color 0.2s,background 0.2s;text-align:center;}
+  .method-card:hover{border-color:var(--sage);}
+  .method-card.active{border-color:var(--sage);background:var(--sage-pale);}
+  .method-icon{font-size:1.6rem;margin-bottom:0.4rem;}
+  .method-name{font-size:0.78rem;font-weight:500;color:var(--ink);margin-bottom:0.3rem;}
+  .method-desc{font-size:0.65rem;color:var(--muted);line-height:1.5;}
+  .method-card.active .method-name{color:var(--sage);}
+  .settings-bar{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.5rem 2rem;margin-bottom:1.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;align-items:end;}
+  label{display:block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+  .input-prefix{position:relative;}
+  .input-prefix span{position:absolute;left:0.5rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:0.72rem;pointer-events:none;font-family:'DM Mono',monospace;}
+  input[type="number"],input[type="text"],select{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:0.65rem 0.85rem;font-family:'DM Mono',monospace;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+  .input-prefix input{padding-left:1.8rem;}
+  input:focus,select:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(74,124,89,0.12);}
+  .debt-section{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:1.5rem;}
+  .debt-section-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;}
+  .debt-row{display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1.5fr 36px;gap:0.6rem;margin-bottom:0.6rem;align-items:end;}
+  .btn-remove{width:36px;height:36px;background:var(--red-pale);color:var(--red);border:1px solid var(--red);border-radius:2px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;padding:0;transition:background 0.2s;flex-shrink:0;}
+  .btn-remove:hover{background:var(--red);color:white;}
+  .btn-add{background:transparent;color:var(--sage);border:1px dashed var(--sage);border-radius:2px;padding:0.6rem;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;width:100%;margin-top:0.6rem;transition:background 0.2s;}
+  .btn-add:hover{background:var(--sage-pale);}
+  .calc-btn{width:100%;background:var(--sage);color:white;border:none;border-radius:2px;padding:1rem;font-family:'DM Mono',monospace;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.1s;margin-bottom:2rem;}
+  .calc-btn:hover{background:#3d6849;}
+  .calc-btn:active{transform:scale(0.99);}
+  .results{opacity:0;transform:translateY(10px);transition:opacity 0.4s,transform 0.4s;}
+  .results.visible{opacity:1;transform:translateY(0);}
+  .summary-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:2rem;}
+  .s-card{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.4rem;animation:fadeUp 0.4s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .s-card.highlight{background:var(--sage-pale);border-color:var(--sage);}
+  .s-card-label{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;}
+  .s-card-value{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--ink);line-height:1.1;margin-bottom:0.2rem;}
+  .s-card.highlight .s-card-value{color:var(--sage);}
+  .s-card-sub{font-size:0.68rem;color:var(--muted);line-height:1.5;}
+  .timeline-section{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
+  .timeline-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.5rem;}
+  .timeline-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .debt-timeline-item{margin-bottom:1.2rem;animation:fadeUp 0.4s ease both;}
+  .dti-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;}
+  .dti-name{font-size:0.8rem;font-weight:500;color:var(--ink);}
+  .dti-amount{font-size:0.75rem;color:var(--muted);}
+  .dti-bar-wrap{height:8px;background:var(--border);border-radius:4px;overflow:hidden;margin-bottom:0.3rem;}
+  .dti-bar{height:100%;border-radius:4px;transition:width 1s cubic-bezier(0.4,0,0.2,1);}
+  .dti-meta{display:flex;justify-content:space-between;font-size:0.65rem;color:var(--muted);}
+  .comparison{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
+  .comparison-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.5rem;}
+  .comparison-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .cmp-card{border:1px solid var(--border);border-radius:4px;padding:1.2rem;text-align:center;}
+  .cmp-card.winner{border-color:var(--sage);background:var(--sage-pale);}
+  .cmp-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;}
+  .cmp-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--ink);margin-bottom:0.6rem;}
+  .cmp-card.winner .cmp-name{color:var(--sage);}
+  .cmp-stat{font-size:0.75rem;color:var(--muted);margin-bottom:0.2rem;}
+  .cmp-stat strong{color:var(--ink);}
+  .winner-badge{display:inline-block;background:var(--sage);color:white;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:2px;margin-top:0.5rem;}
+  .tip-box{background:var(--sage-pale);border-left:3px solid var(--sage);padding:1rem 1.2rem;border-radius:0 2px 2px 0;font-size:0.78rem;color:var(--sage);line-height:1.6;margin-bottom:2rem;}
+  .tip-box strong{color:var(--ink);}
+  .ad-slot{background:var(--cream);border:1px dashed var(--border);text-align:center;padding:0.8rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;margin-bottom:2rem;}
+  .ad-box{background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.3rem;color:var(--muted);font-size:0.7rem;}
+  .share-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:2rem;}
+  .btn-secondary{width:100%;background:transparent;color:var(--sage);border:1px solid var(--sage);border-radius:2px;padding:0.85rem;font-family:'DM Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+  .btn-secondary:hover{background:var(--sage-pale);}
+  .btn-gold{width:100%;background:var(--gold);color:white;border:none;border-radius:2px;padding:0.85rem;font-family:'DM Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+  .btn-gold:hover{background:#b07820;}
+  .tools-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
+  .tools-panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;color:var(--ink);padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .tools-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+  .tool-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;text-decoration:none;color:var(--ink);transition:border-color 0.2s,box-shadow 0.2s;display:block;}
+  .tool-card:hover{border-color:var(--sage);box-shadow:0 2px 8px rgba(74,124,89,0.12);}
+  .tool-icon{font-size:1.4rem;margin-bottom:0.4rem;}
+  .tool-name{font-size:0.8rem;font-weight:500;color:var(--sage);margin-bottom:0.3rem;}
+  .tool-desc{font-size:0.68rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem;}
+  .tool-link{font-size:0.65rem;color:var(--gold);letter-spacing:0.05em;}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,26,15,0.5);z-index:200;align-items:center;justify-content:center;}
+  .modal-overlay.open{display:flex;}
+  .modal{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;width:100%;max-width:400px;margin:1rem;}
+  .modal-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;color:var(--sage);}
+  .modal-close{float:right;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;width:auto;padding:0;margin:0;line-height:1;}
+  .modal-close:hover{color:var(--ink);}
+  .modal input{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:0.65rem 0.85rem;font-family:'DM Mono',monospace;font-size:0.88rem;color:var(--ink);outline:none;margin-bottom:1rem;}
+  .modal input:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(74,124,89,0.12);}
+  .modal label{display:block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+  .modal-note{font-size:0.65rem;color:var(--muted);margin-top:0.8rem;line-height:1.5;}
+  footer{text-align:center;padding:1.5rem 2rem;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;border-top:1px solid var(--border);margin-top:1rem;}
+  footer a{color:var(--sage);text-decoration:none;}
+  @media(max-width:640px){header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.method-selector{grid-template-columns:1fr;}.settings-bar{grid-template-columns:1fr;}.debt-row{grid-template-columns:1fr 1fr;}.summary-cards{grid-template-columns:1fr;}.comparison-grid{grid-template-columns:1fr;}.share-row{grid-template-columns:1fr;}.tools-grid{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
+  @media print{body::before,nav,.ad-slot,.share-row,.btn-add,.btn-remove,.calc-btn,.tools-panel{display:none !important;}.results{opacity:1 !important;transform:none !important;}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">Sharpline<span>.</span></div>
   <div class="tagline">Debt Payoff Calculator | debtcrusher.ca</div>
 </header>
-
 <main>
   <div class="hero">
     <h1>Get <span>Debt Free</span> Faster</h1>
     <p>Choose your payoff strategy, enter your debts, and see exactly when you'll be debt free — and how much interest you'll save.</p>
   </div>
-
   <div class="method-selector">
-    <div class="method-card active" onclick="selectMethod('snowball')" id="m-snowball">
-      <div class="method-icon">❄️</div>
-      <div class="method-name">Snowball</div>
-      <div class="method-desc">Pay smallest balances first. Build momentum with quick wins.</div>
-    </div>
-    <div class="method-card" onclick="selectMethod('avalanche')" id="m-avalanche">
-      <div class="method-icon">🏔️</div>
-      <div class="method-name">Avalanche</div>
-      <div class="method-desc">Pay highest interest first. Save the most money overall.</div>
-    </div>
-    <div class="method-card" onclick="selectMethod('compare')" id="m-compare">
-      <div class="method-icon">⚖️</div>
-      <div class="method-name">Compare Both</div>
-      <div class="method-desc">See Snowball vs Avalanche side by side. Find your best option.</div>
-    </div>
+    <div class="method-card active" onclick="selectMethod('snowball')" id="m-snowball"><div class="method-icon">❄️</div><div class="method-name">Snowball</div><div class="method-desc">Pay smallest balances first. Build momentum with quick wins.</div></div>
+    <div class="method-card" onclick="selectMethod('avalanche')" id="m-avalanche"><div class="method-icon">🏔️</div><div class="method-name">Avalanche</div><div class="method-desc">Pay highest interest first. Save the most money overall.</div></div>
+    <div class="method-card" onclick="selectMethod('compare')" id="m-compare"><div class="method-icon">⚖️</div><div class="method-name">Compare Both</div><div class="method-desc">See Snowball vs Avalanche side by side.</div></div>
   </div>
-
   <div class="settings-bar">
     <div>
       <label>Currency</label>
@@ -201,95 +157,43 @@
     </div>
     <div>
       <label>Extra Monthly Payment</label>
-      <div class="input-prefix">
-        <span>$</span>
-        <input type="number" id="extraPayment" placeholder="0" min="0" value="0" />
-      </div>
+      <div class="input-prefix"><span>$</span><input type="number" id="extraPayment" placeholder="0" min="0" value="0" /></div>
     </div>
-    <div>
-      <p style="font-size:0.65rem;color:var(--muted);line-height:1.6;">💡 Extra payments go to your priority debt each month, dramatically speeding up payoff.</p>
-    </div>
+    <div><p style="font-size:0.65rem;color:var(--muted);line-height:1.6;">💡 Extra payments go to your priority debt each month, dramatically speeding up payoff.</p></div>
   </div>
-
   <div class="debt-section">
     <div class="debt-section-title">Your Debts</div>
-    <div class="debt-row" style="margin-bottom:0.3rem;">
-      <label>Debt Name</label>
-      <label>Balance</label>
-      <label>Interest Rate</label>
-      <label>Min. Payment</label>
-      <label></label>
-    </div>
+    <div class="debt-row" style="margin-bottom:0.3rem;"><label>Debt Name</label><label>Balance</label><label>Interest Rate</label><label>Min. Payment</label><label></label></div>
     <div id="debtRows"></div>
     <button class="btn-add" onclick="addDebtRow()">+ Add Another Debt</button>
   </div>
-
-  <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-bottom:1rem;">
-    ✏️ Fill in your debts above, then tap Calculate to see your payoff plan.
-  </p>
+  <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-bottom:1rem;">✏️ Fill in your debts above, then tap Calculate to see your payoff plan.</p>
   <button class="calc-btn" onclick="calculate()">Calculate My Payoff Plan →</button>
-
   <div class="results" id="results">
     <div class="summary-cards" id="summaryCards"></div>
-    <div class="timeline-section">
-      <div class="timeline-title">Payoff Timeline</div>
-      <div id="timelineItems"></div>
-    </div>
-    <div class="comparison" id="comparisonSection" style="display:none;">
-      <div class="comparison-title">Snowball vs Avalanche</div>
-      <div class="comparison-grid" id="comparisonGrid"></div>
-    </div>
+    <div class="timeline-section"><div class="timeline-title">Payoff Timeline</div><div id="timelineItems"></div></div>
+    <div class="comparison" id="comparisonSection" style="display:none;"><div class="comparison-title">Snowball vs Avalanche</div><div class="comparison-grid" id="comparisonGrid"></div></div>
     <div class="tip-box" id="tipBox"></div>
-    <div class="ad-slot">
-      <div>Advertisement</div>
-      <div class="ad-box">AdSense 728×90 Leaderboard</div>
-    </div>
+    <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90 Leaderboard</div></div>
     <div class="share-row">
       <button class="btn-secondary" onclick="window.print()">🖨️ Print Results</button>
       <button class="btn-gold" onclick="openEmailModal()">✉️ Email Results</button>
     </div>
-  </div>
-
-  <div class="tools-panel">
-    <div class="tools-panel-title">More Free Tools from Sharpline</div>
-    <div class="tools-grid">
-      <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">📊</div>
-        <div class="tool-name">50/30/20 Budget Calculator</div>
-        <div class="tool-desc">Split your monthly income into needs, wants and savings instantly.</div>
-        <div class="tool-link">503020.ca →</div>
-      </a>
-      <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">🎯</div>
-        <div class="tool-name">Savings Goal Tracker</div>
-        <div class="tool-desc">See exactly when you'll reach any savings goal with milestone dates.</div>
-        <div class="tool-link">vaultgoal.com →</div>
-      </a>
+    <div class="tools-panel">
+      <div class="tools-panel-title">More Free Tools from Sharpline</div>
+      <div class="tools-grid">
+        <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🎯</div><div class="tool-name">Savings Goal Tracker</div><div class="tool-desc">See exactly when you'll reach any savings goal with milestone dates.</div><div class="tool-link">vaultgoal.com →</div></a>
+        <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">📊</div><div class="tool-name">50/30/20 Budget Calculator</div><div class="tool-desc">Split your monthly income into needs, wants and savings instantly.</div><div class="tool-link">503020.ca →</div></a>
+        <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🏠</div><div class="tool-name">Canadian Mortgage Calculator</div><div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div><div class="tool-link">mortgagemasher.com →</div></a>
+      </div>
     </div>
   </div>
 </main>
-
-<footer>
-  Sharpline · debtcrusher.ca © 2026 &nbsp;·&nbsp;
-  <a href="about.html">About</a> &nbsp;·&nbsp;
-  <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-  <a href="contact.html">Contact</a> &nbsp;·&nbsp;
-  Not financial advice · Results are estimates
-</footer>
-
-<nav>
-  <a href="index.html">🏠 Calculator</a>
-  <a href="about.html">About</a>
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+<footer>Sharpline · debtcrusher.ca © 2026 &nbsp;·&nbsp; <a href="about.html">About</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp; Not financial advice · Results are estimates</footer>
+<nav><a href="index.html">🏠 Calculator</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
-    <div class="modal-title">
-      <button class="modal-close" onclick="closeEmailModal()">✕</button>
-      Email Your Payoff Plan
-    </div>
+    <div class="modal-title"><button class="modal-close" onclick="closeEmailModal()">✕</button>Email Your Payoff Plan</div>
     <div><label>Recipient Email</label><input type="email" id="emailTo" placeholder="friend@example.com" /></div>
     <div><label>Your Name (optional)</label><input type="text" id="emailFrom" placeholder="e.g. Alex" /></div>
     <button class="calc-btn" style="margin-bottom:0.6rem;margin-top:0.5rem;" onclick="sendEmail()">Send Results →</button>
@@ -297,337 +201,124 @@
     <p class="modal-note">Opens your email app with your payoff plan pre-filled and ready to send.</p>
   </div>
 </div>
-
 <script>
-  var selectedMethod = 'snowball';
-  var lastResults    = {};
-  var debtCount      = 0;
-  var colours = ['#4a7c59','#c8922a','#3a6b8a','#7a5a8a','#8a4a4a','#4a6a8a'];
-
-  function fmt(n, sym) {
-    return sym + Number(Math.abs(n).toFixed(0)).toLocaleString();
-  }
-
-  function fmtDate(months) {
-    var d = new Date();
-    d.setMonth(d.getMonth() + months);
-    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-  }
-
-  function selectMethod(m) {
-    selectedMethod = m;
-    ['snowball','avalanche','compare'].forEach(function(x) {
-      document.getElementById('m-' + x).classList.toggle('active', x === m);
-    });
-  }
-
-  function addDebtRow(name, balance, rate, minPay) {
-    debtCount++;
-    var id  = debtCount;
-    var row = document.createElement('div');
-    row.className = 'debt-row';
-    row.id = 'debt-' + id;
-    row.innerHTML =
-      '<div><input type="text" placeholder="e.g. Visa Card" value="' + (name||'') + '" id="dn-'+id+'" /></div>' +
-      '<div class="input-prefix"><span>$</span><input type="number" placeholder="3500" min="0" value="'+(balance||'')+'" id="db-'+id+'" /></div>' +
-      '<div class="input-prefix"><span>%</span><input type="number" placeholder="19.9" min="0" step="0.01" value="'+(rate||'')+'" id="dr-'+id+'" style="padding-left:1.8rem" /></div>' +
-      '<div class="input-prefix"><span>$</span><input type="number" placeholder="75" min="0" value="'+(minPay||'')+'" id="dm-'+id+'" /></div>' +
+  var selectedMethod='snowball',lastResults={},debtCount=0;
+  var colours=['#4a7c59','#c8922a','#3a6b8a','#7a5a8a','#8a4a4a','#4a6a8a'];
+  function fmt(n,sym){return sym+''+Number(Math.abs(n).toFixed(0)).toLocaleString();}
+  function fmtDate(m){var d=new Date();d.setMonth(d.getMonth()+m);return d.toLocaleDateString('en-US',{month:'short',year:'numeric'});}
+  function selectMethod(m){selectedMethod=m;['snowball','avalanche','compare'].forEach(function(x){document.getElementById('m-'+x).classList.toggle('active',x===m);});}
+  function addDebtRow(name,balance,rate,minPay){
+    debtCount++;var id=debtCount;
+    var row=document.createElement('div');row.className='debt-row';row.id='debt-'+id;
+    row.innerHTML='<div><input type="text" placeholder="e.g. Visa Card" value="'+(name||'')+'" id="dn-'+id+'" /></div>'+
+      '<div class="input-prefix"><span>$</span><input type="number" placeholder="3500" min="0" value="'+(balance||'')+'" id="db-'+id+'" /></div>'+
+      '<div class="input-prefix"><span>%</span><input type="number" placeholder="19.9" min="0" step="0.01" value="'+(rate||'')+'" id="dr-'+id+'" style="padding-left:1.8rem" /></div>'+
+      '<div class="input-prefix"><span>$</span><input type="number" placeholder="75" min="0" value="'+(minPay||'')+'" id="dm-'+id+'" /></div>'+
       '<button class="btn-remove" onclick="removeDebt('+id+')">✕</button>';
     document.getElementById('debtRows').appendChild(row);
   }
-
-  function removeDebt(id) {
-    var r = document.getElementById('debt-'+id);
-    if (r) r.remove();
-  }
-
-  function getDebts() {
-    var out = [];
-    document.querySelectorAll('#debtRows .debt-row').forEach(function(row) {
-      var id = row.id.replace('debt-','');
-      var b  = parseFloat(document.getElementById('db-'+id).value) || 0;
-      if (b <= 0) return;
-      out.push({
-        name:    document.getElementById('dn-'+id).value.trim() || ('Debt '+id),
-        balance: b,
-        rate:    parseFloat(document.getElementById('dr-'+id).value) || 0,
-        minPay:  parseFloat(document.getElementById('dm-'+id).value) || 0
-      });
+  function removeDebt(id){var r=document.getElementById('debt-'+id);if(r)r.remove();}
+  function getDebts(){
+    var out=[];
+    document.querySelectorAll('#debtRows .debt-row').forEach(function(row){
+      var id=row.id.replace('debt-','');
+      var b=parseFloat(document.getElementById('db-'+id).value)||0;
+      if(b<=0)return;
+      out.push({name:document.getElementById('dn-'+id).value.trim()||('Debt '+id),balance:b,rate:parseFloat(document.getElementById('dr-'+id).value)||0,minPay:parseFloat(document.getElementById('dm-'+id).value)||0});
     });
     return out;
   }
-
-  /*
-   * PAYOFF ENGINE
-   * The key to Snowball vs Avalanche is the ORDER in which freed-up
-   * payments are applied once a debt is paid off.
-   *
-   * Each month:
-   * 1. Interest accrues on all remaining balances
-   * 2. Each debt receives its own minimum payment
-   * 3. Any freed-up minimums (from paid-off debts) + extra payment
-   *    go to the TOP of the priority queue
-   *
-   * Priority queue order:
-   *   Snowball  → sort by remaining balance ASCENDING  (smallest first)
-   *   Avalanche → sort by interest rate    DESCENDING (highest first)
-   */
-  function calcPayoff(debts, method, extraPerMonth) {
-    /*
-     * TRUE Snowball / Avalanche implementation
-     *
-     * Fixed total monthly budget = sum of all minimums + extra
-     * Every month:
-     *   1. Interest accrues on all balances
-     *   2. ALL debts receive their minimum payment
-     *   3. Any surplus (budget minus minimums paid to active debts,
-     *      plus freed minimums from paid-off debts) goes 100% to
-     *      the single priority debt
-     *
-     * Priority debt:
-     *   Snowball  = lowest ORIGINAL balance (encourages quick wins)
-     *   Avalanche = highest interest RATE   (minimises total interest)
-     *
-     * The surplus grows every time a debt is eliminated because that
-     * debt's minimum payment is no longer needed elsewhere.
-     */
-
-    // Total fixed monthly budget
-    var totalBudget = extraPerMonth;
-    debts.forEach(function(d){ totalBudget += Math.max(d.minPay, 1); });
-
-    // Clone debts
-    var ds = debts.map(function(d) {
-      return {
-        name:         d.name,
-        origBalance:  d.balance,
-        rate:         d.rate,
-        minPay:       Math.max(d.minPay, 1),
-        remaining:    d.balance,
-        paidOffMonth: null
-      };
-    });
-
-    // Determine fixed priority order from ORIGINAL values (never changes)
-    var priorityOrder = ds.slice().sort(function(a, b) {
-      if (method === 'snowball') {
-        return a.origBalance - b.origBalance; // smallest balance first
-      } else {
-        return b.rate - a.rate;               // highest rate first
-      }
-    });
-
-    var month         = 0;
-    var totalInterest = 0;
-
-    while (ds.some(function(d){ return d.remaining > 0.005; }) && month < 600) {
+  function calcPayoff(debts,method,extraPerMonth){
+    var totalBudget=extraPerMonth;
+    debts.forEach(function(d){totalBudget+=Math.max(d.minPay,1);});
+    var ds=debts.map(function(d){return{name:d.name,origBalance:d.balance,rate:d.rate,minPay:Math.max(d.minPay,1),remaining:d.balance,paidOffMonth:null};});
+    var priorityOrder=ds.slice().sort(function(a,b){return method==='snowball'?a.origBalance-b.origBalance:b.rate-a.rate;});
+    var month=0,totalInterest=0;
+    while(ds.some(function(d){return d.remaining>0.005;})&&month<600){
       month++;
-
-      // 1. Accrue interest on all active debts
-      ds.forEach(function(d) {
-        if (d.remaining <= 0.005) return;
-        var interest = d.remaining * (d.rate / 100 / 12);
-        totalInterest += interest;
-        d.remaining   += interest;
-      });
-
-      // 2. Pay minimums on ALL active debts first
-      var minimumsPaid = 0;
-      ds.forEach(function(d) {
-        if (d.remaining <= 0.005) return;
-        var pay = Math.min(d.minPay, d.remaining);
-        d.remaining  -= pay;
-        minimumsPaid += pay;
-        if (d.remaining < 0.005) d.remaining = 0;
-      });
-
-      // 3. Calculate surplus = total budget minus minimums actually paid
-      //    (freed minimums from paid-off debts automatically increase surplus)
-      var surplus = totalBudget - minimumsPaid;
-
-      // 4. Apply entire surplus to the top priority debt that still has a balance
-      for (var i = 0; i < priorityOrder.length && surplus > 0.005; i++) {
-        var target = priorityOrder[i];
-        // Find the live debt object
-        var live = ds.find(function(d){ return d.name === target.name; });
-        if (!live || live.remaining <= 0.005) continue;
-        var pay = Math.min(surplus, live.remaining);
-        live.remaining -= pay;
-        surplus        -= pay;
-        if (live.remaining < 0.005) live.remaining = 0;
+      ds.forEach(function(d){if(d.remaining<=0.005)return;var interest=d.remaining*(d.rate/100/12);totalInterest+=interest;d.remaining+=interest;});
+      var minimumsPaid=0;
+      ds.forEach(function(d){if(d.remaining<=0.005)return;var pay=Math.min(d.minPay,d.remaining);d.remaining-=pay;minimumsPaid+=pay;if(d.remaining<0.005)d.remaining=0;});
+      var surplus=totalBudget-minimumsPaid;
+      for(var i=0;i<priorityOrder.length&&surplus>0.005;i++){
+        var live=ds.find(function(d){return d.name===priorityOrder[i].name;});
+        if(!live||live.remaining<=0.005)continue;
+        var pay=Math.min(surplus,live.remaining);live.remaining-=pay;surplus-=pay;if(live.remaining<0.005)live.remaining=0;
       }
-
-      // 5. Mark paid-off debts
-      ds.forEach(function(d) {
-        if (d.remaining <= 0.005 && !d.paidOffMonth) {
-          d.paidOffMonth = month;
-        }
-      });
+      ds.forEach(function(d){if(d.remaining<=0.005&&!d.paidOffMonth)d.paidOffMonth=month;});
     }
-
-    return {
-      months:        month,
-      totalInterest: totalInterest,
-      payoffOrder:   ds.filter(function(d){ return d.paidOffMonth; })
-                       .sort(function(a,b){ return a.paidOffMonth - b.paidOffMonth; })
-                       .map(function(d){ return { name: d.name, month: d.paidOffMonth }; }),
-      ds: ds
-    };
+    return{months:month,totalInterest:totalInterest,payoffOrder:ds.filter(function(d){return d.paidOffMonth;}).sort(function(a,b){return a.paidOffMonth-b.paidOffMonth;}).map(function(d){return{name:d.name,month:d.paidOffMonth};}),ds:ds};
   }
-
-  function calculate() {
-    var debts  = getDebts();
-    var sym    = document.getElementById('currency').value;
-    var extra  = parseFloat(document.getElementById('extraPayment').value) || 0;
-
-    if (!debts.length)                          { alert('Please add at least one debt.'); return; }
-    if (debts.every(function(d){ return !d.minPay; })) { alert('Please enter minimum payments for your debts.'); return; }
-
-    var snowR, avaR, primary;
-
-    if (selectedMethod === 'compare') {
-      snowR   = calcPayoff(debts, 'snowball',  extra);
-      avaR    = calcPayoff(debts, 'avalanche', extra);
-      primary = snowR;
-    } else if (selectedMethod === 'snowball') {
-      primary = calcPayoff(debts, 'snowball',  extra);
-    } else {
-      primary = calcPayoff(debts, 'avalanche', extra);
-    }
-
-    lastResults = { primary: primary, snowR: snowR, avaR: avaR, debts: debts, sym: sym, extra: extra, method: selectedMethod };
-
-    var totalDebt = debts.reduce(function(s,d){ return s + d.balance; }, 0);
-    var mName     = selectedMethod === 'snowball' ? 'Snowball' : selectedMethod === 'avalanche' ? 'Avalanche' : 'Snowball (shown)';
-
-    // Summary cards
-    document.getElementById('summaryCards').innerHTML =
-      card('highlight', '0s', 'Total Debt',         fmt(totalDebt, sym),              debts.length + ' debt' + (debts.length>1?'s':'') + ' · ' + mName) +
-      card('',          '0.1s','Debt Free In',       primary.months + ' months',       'Target: ' + fmtDate(primary.months)) +
-      card('',          '0.2s','Total Interest Paid',fmt(primary.totalInterest, sym),  'On top of ' + fmt(totalDebt, sym) + ' principal');
-
-    function card(cls, delay, lbl, val, sub) {
-      return '<div class="s-card ' + cls + '" style="animation-delay:' + delay + '">' +
-        '<div class="s-card-label">' + lbl + '</div>' +
-        '<div class="s-card-value">' + val + '</div>' +
-        '<div class="s-card-sub">'   + sub + '</div></div>';
-    }
-
-    // Timeline
-    var sorted = debts.slice().sort(function(a,b){
-      return selectedMethod === 'avalanche' ? b.rate - a.rate : a.balance - b.balance;
+  function calculate(){
+    var debts=getDebts(),sym=document.getElementById('currency').value,extra=parseFloat(document.getElementById('extraPayment').value)||0;
+    if(!debts.length){alert('Please add at least one debt.');return;}
+    if(debts.every(function(d){return!d.minPay;})){alert('Please enter minimum payments for your debts.');return;}
+    var snowR,avaR,primary;
+    if(selectedMethod==='compare'){snowR=calcPayoff(debts,'snowball',extra);avaR=calcPayoff(debts,'avalanche',extra);primary=snowR;}
+    else if(selectedMethod==='snowball'){primary=calcPayoff(debts,'snowball',extra);}
+    else{primary=calcPayoff(debts,'avalanche',extra);}
+    lastResults={primary:primary,snowR:snowR,avaR:avaR,debts:debts,sym:sym,extra:extra,method:selectedMethod};
+    var totalDebt=debts.reduce(function(s,d){return s+d.balance;},0);
+    var mName=selectedMethod==='snowball'?'Snowball':selectedMethod==='avalanche'?'Avalanche':'Snowball (shown)';
+    function card(cls,delay,lbl,val,sub){return '<div class="s-card '+cls+'" style="animation-delay:'+delay+'"><div class="s-card-label">'+lbl+'</div><div class="s-card-value">'+val+'</div><div class="s-card-sub">'+sub+'</div></div>';}
+    document.getElementById('summaryCards').innerHTML=
+      card('highlight','0s','Total Debt',fmt(totalDebt,sym),debts.length+' debt'+(debts.length>1?'s':'')+' · '+mName)+
+      card('','0.1s','Debt Free In',primary.months+' months','Target: '+fmtDate(primary.months))+
+      card('','0.2s','Total Interest Paid',fmt(primary.totalInterest,sym),'On top of '+fmt(totalDebt,sym)+' principal');
+    var sorted=debts.slice().sort(function(a,b){return selectedMethod==='avalanche'?b.rate-a.rate:a.balance-b.balance;});
+    var html='';
+    sorted.forEach(function(d,i){
+      var po=primary.payoffOrder.find(function(p){return p.name===d.name;});
+      var poMonth=po?po.month:primary.months;
+      var pct=Math.min((poMonth/primary.months)*100,100);
+      html+='<div class="debt-timeline-item" style="animation-delay:'+(i*0.08)+'s">'+
+        '<div class="dti-header"><div class="dti-name">'+d.name+'</div><div class="dti-amount">'+fmt(d.balance,sym)+' @ '+d.rate+'%</div></div>'+
+        '<div class="dti-bar-wrap"><div class="dti-bar" style="width:0%;background:'+colours[i%colours.length]+'" data-target="'+pct+'"></div></div>'+
+        '<div class="dti-meta"><span>Paid off: '+fmtDate(poMonth)+'</span><span>'+poMonth+' months</span></div></div>';
     });
-
-    var html = '';
-    sorted.forEach(function(d, i) {
-      var po      = primary.payoffOrder.find(function(p){ return p.name === d.name; });
-      var poMonth = po ? po.month : primary.months;
-      var pct     = Math.min((poMonth / primary.months) * 100, 100);
-      html +=
-        '<div class="debt-timeline-item" style="animation-delay:' + (i*0.08) + 's">' +
-          '<div class="dti-header"><div class="dti-name">' + d.name + '</div>' +
-          '<div class="dti-amount">' + fmt(d.balance, sym) + ' @ ' + d.rate + '%</div></div>' +
-          '<div class="dti-bar-wrap"><div class="dti-bar" style="width:0%;background:' + colours[i%colours.length] + '" data-target="' + pct + '"></div></div>' +
-          '<div class="dti-meta"><span>Paid off: ' + fmtDate(poMonth) + '</span><span>' + poMonth + ' months</span></div>' +
-        '</div>';
-    });
-    document.getElementById('timelineItems').innerHTML = html;
-    setTimeout(function(){
-      document.querySelectorAll('.dti-bar').forEach(function(b){ b.style.width = b.dataset.target + '%'; });
-    }, 200);
-
-    // Compare panel
-    if (selectedMethod === 'compare' && snowR && avaR) {
-      document.getElementById('comparisonSection').style.display = 'block';
-      var avWins      = avaR.totalInterest < snowR.totalInterest;
-      var saved       = Math.abs(snowR.totalInterest - avaR.totalInterest);
-      var monthsDiff  = Math.abs(snowR.months - avaR.months);
-
-      document.getElementById('comparisonGrid').innerHTML =
-        cmpCard(!avWins, '❄️ Snowball', snowR.months, snowR.totalInterest, sym,
-          !avWins ? '✓ Saves most money' : 'Costs ' + fmt(saved,sym) + ' more interest') +
-        cmpCard(avWins,  '🏔️ Avalanche', avaR.months, avaR.totalInterest, sym,
-          avWins  ? '✓ Saves ' + fmt(saved,sym) + ' vs Snowball' : 'Costs ' + fmt(saved,sym) + ' more interest');
-
-      function cmpCard(win, name, months, interest, s, badge) {
-        return '<div class="cmp-card' + (win?' winner':'') + '">' +
-          '<div class="cmp-label">Method</div>' +
-          '<div class="cmp-name">' + name + '</div>' +
-          '<div class="cmp-stat">Debt free in: <strong>' + months + ' months</strong></div>' +
-          '<div class="cmp-stat">Target date: <strong>' + fmtDate(months) + '</strong></div>' +
-          '<div class="cmp-stat">Total interest: <strong>' + fmt(interest,s) + '</strong></div>' +
-          '<div><span class="' + (win?'winner-badge':'') + '" style="' + (!win?'font-size:0.68rem;color:var(--muted);':'') + '">' + badge + '</span></div>' +
-        '</div>';
+    document.getElementById('timelineItems').innerHTML=html;
+    setTimeout(function(){document.querySelectorAll('.dti-bar').forEach(function(b){b.style.width=b.dataset.target+'%';});},200);
+    if(selectedMethod==='compare'&&snowR&&avaR){
+      document.getElementById('comparisonSection').style.display='block';
+      var avWins=avaR.totalInterest<snowR.totalInterest;
+      var saved=Math.abs(snowR.totalInterest-avaR.totalInterest);
+      function cmpCard(win,name,months,interest){
+        return '<div class="cmp-card'+(win?' winner':'')+'"><div class="cmp-label">Method</div><div class="cmp-name">'+name+'</div>'+
+          '<div class="cmp-stat">Debt free in: <strong>'+months+' months</strong></div>'+
+          '<div class="cmp-stat">Target: <strong>'+fmtDate(months)+'</strong></div>'+
+          '<div class="cmp-stat">Total interest: <strong>'+fmt(interest,sym)+'</strong></div>'+
+          (win?'<div><span class="winner-badge">✓ Saves '+fmt(saved,sym)+'</span></div>':'')+'</div>';
       }
-    } else {
-      document.getElementById('comparisonSection').style.display = 'none';
-    }
-
-    // Tip
-    var tip;
-    if (extra === 0) {
-      tip = '💡 <strong>Pro tip:</strong> Adding even ' + fmt(50,sym) + ' extra per month can shave months off your payoff and save hundreds in interest.';
-    } else if (selectedMethod === 'compare' && snowR && avaR) {
-      var s = Math.abs(snowR.totalInterest - avaR.totalInterest);
-      tip = '⚖️ <strong>Result:</strong> Avalanche saves ' + fmt(s,sym) + ' in interest. Snowball delivers faster early wins. Choose what fits your personality.';
-    } else if (selectedMethod === 'snowball') {
-      tip = '❄️ <strong>Snowball:</strong> Each paid-off debt rolls its minimum payment into the next smallest balance — the acceleration effect is powerful.';
-    } else {
-      tip = '🏔️ <strong>Avalanche:</strong> Targeting your highest-rate debt first minimises total interest paid over the life of your debts.';
-    }
-    document.getElementById('tipBox').innerHTML = tip;
-
-    var el = document.getElementById('results');
-    el.classList.add('visible');
-    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      document.getElementById('comparisonGrid').innerHTML=cmpCard(!avWins,'❄️ Snowball',snowR.months,snowR.totalInterest)+cmpCard(avWins,'🏔️ Avalanche',avaR.months,avaR.totalInterest);
+    }else{document.getElementById('comparisonSection').style.display='none';}
+    var tip='';
+    if(extra===0){tip='💡 <strong>Pro tip:</strong> Adding even '+fmt(50,sym)+' extra per month can shave months off your payoff and save hundreds in interest.';}
+    else if(selectedMethod==='compare'&&snowR&&avaR){var s=Math.abs(snowR.totalInterest-avaR.totalInterest);tip='⚖️ <strong>Result:</strong> Avalanche saves '+fmt(s,sym)+' in interest. Snowball delivers faster early wins. Choose what fits your personality.';}
+    else if(selectedMethod==='snowball'){tip='❄️ <strong>Snowball:</strong> Each paid-off debt rolls its minimum payment into the next smallest balance.';}
+    else{tip='🏔️ <strong>Avalanche:</strong> Targeting your highest-rate debt first minimises total interest paid.';}
+    document.getElementById('tipBox').innerHTML=tip;
+    var el=document.getElementById('results');el.classList.add('visible');el.scrollIntoView({behavior:'smooth',block:'nearest'});
   }
-
-  function openEmailModal()  { document.getElementById('emailModal').classList.add('open'); }
-  function closeEmailModal() { document.getElementById('emailModal').classList.remove('open'); }
-
-  function sendEmail() {
-    var to   = document.getElementById('emailTo').value.trim();
-    var from = document.getElementById('emailFrom').value.trim();
-    var r    = lastResults;
-    if (!to) { alert('Please enter a recipient email.'); return; }
-    var greeting  = from ? from + ' has shared their debt payoff plan with you.' : 'Here is my debt payoff plan:';
-    var totalDebt = r.debts.reduce(function(s,d){ return s+d.balance; }, 0);
-    var debtList  = r.debts.map(function(d){ return '  '+d.name+': '+fmt(d.balance,r.sym)+' @ '+d.rate+'% (min '+fmt(d.minPay,r.sym)+'/mo)'; }).join('\n');
-    var compStr   = '';
-    if (r.method==='compare' && r.snowR && r.avaR) {
-      compStr = '\nSNOWBALL:  ' + r.snowR.months + ' months · ' + fmt(r.snowR.totalInterest,r.sym) + ' interest' +
-                '\nAVALANCHE: ' + r.avaR.months  + ' months · ' + fmt(r.avaR.totalInterest,r.sym)  + ' interest\n';
-    }
-    var subject = encodeURIComponent('My Debt Payoff Plan — DebtCrusher.ca');
-    var body    = encodeURIComponent(
-      greeting + '\n\n' +
-      '━━━━━━━━━━━━━━━━━━━━━\nDEBT PAYOFF PLAN\n━━━━━━━━━━━━━━━━━━━━━\n\n' +
-      'MY DEBTS:\n' + debtList + '\n\n' +
-      'Method:         ' + (r.method==='compare'?'Snowball vs Avalanche':r.method.charAt(0).toUpperCase()+r.method.slice(1)) + '\n' +
-      'Total Debt:     ' + fmt(totalDebt,r.sym) + '\n' +
-      'Debt Free In:   ' + r.primary.months + ' months\n' +
-      'Target Date:    ' + fmtDate(r.primary.months) + '\n' +
-      'Total Interest: ' + fmt(r.primary.totalInterest,r.sym) + '\n' +
-      (r.extra>0?'Extra Payment:  '+fmt(r.extra,r.sym)+'/month\n':'') +
-      compStr +
-      '\n━━━━━━━━━━━━━━━━━━━━━\nhttps://debtcrusher.ca\nNot financial advice.'
-    );
-    window.location.href = 'mailto:'+to+'?subject='+subject+'&body='+body;
+  function openEmailModal(){document.getElementById('emailModal').classList.add('open');}
+  function closeEmailModal(){document.getElementById('emailModal').classList.remove('open');}
+  function sendEmail(){
+    var to=document.getElementById('emailTo').value.trim(),from=document.getElementById('emailFrom').value.trim(),r=lastResults;
+    if(!to){alert('Please enter a recipient email.');return;}
+    var greeting=from?from+' has shared their debt payoff plan with you.':'Here is my debt payoff plan:';
+    var totalDebt=r.debts.reduce(function(s,d){return s+d.balance;},0);
+    var debtList=r.debts.map(function(d){return '  '+d.name+': '+fmt(d.balance,r.sym)+' @ '+d.rate+'% (min '+fmt(d.minPay,r.sym)+'/mo)';}).join('\n');
+    var compStr='';
+    if(r.method==='compare'&&r.snowR&&r.avaR){compStr='\nSnowball:  '+r.snowR.months+' months · '+fmt(r.snowR.totalInterest,r.sym)+' interest\nAvalanche: '+r.avaR.months+' months · '+fmt(r.avaR.totalInterest,r.sym)+' interest\n';}
+    var subject=encodeURIComponent('My Debt Payoff Plan — DebtCrusher.ca');
+    var body=encodeURIComponent(greeting+'\n\n━━━━━━━━━━━━━━━━━━━━━\nDEBT PAYOFF PLAN\n━━━━━━━━━━━━━━━━━━━━━\n\nMY DEBTS:\n'+debtList+'\n\nMethod: '+(r.method==='compare'?'Snowball vs Avalanche':r.method.charAt(0).toUpperCase()+r.method.slice(1))+'\nTotal Debt: '+fmt(totalDebt,r.sym)+'\nDebt Free In: '+r.primary.months+' months\nTarget Date: '+fmtDate(r.primary.months)+'\nTotal Interest: '+fmt(r.primary.totalInterest,r.sym)+'\n'+(r.extra>0?'Extra Payment: '+fmt(r.extra,r.sym)+'/month\n':'')+compStr+'\n━━━━━━━━━━━━━━━━━━━━━\nhttps://debtcrusher.ca\nNot financial advice.');
+    window.location.href='mailto:'+to+'?subject='+subject+'&body='+body;
     closeEmailModal();
   }
-
-  document.addEventListener('keydown', function(e){ if (e.key==='Escape') closeEmailModal(); });
-
-  window.addEventListener('load', function() {
-    // Total minimums = $25 + $85 + $180 = $290/month
-    // Surplus each month = user can add extra, or methods differentiate via rollover
-    // Snowball targets Store Card first (smallest $1,200 balance)
-    // Avalanche targets Credit Card first (highest 24.99% rate)
-    // With Snowball: Credit Card @ 24.99% keeps growing while Store Card is cleared
-    // With Avalanche: highest interest stopped first = less total interest paid
-    addDebtRow('Store Card',   1200,  18.00, 25);
-    addDebtRow('Credit Card',  6800,  24.99, 85);
-    addDebtRow('Car Loan',    11000,   5.90, 180);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeEmailModal();});
+  window.addEventListener('load',function(){
+    addDebtRow('Store Card',1200,18.00,25);
+    addDebtRow('Credit Card',6800,24.99,85);
+    addDebtRow('Car Loan',11000,5.90,180);
   });
 </script>
 </body>
