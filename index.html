@@ -26,13 +26,13 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"What is the debt snowball method?","acceptedAnswer":{"@type":"Answer","text":"The debt snowball method involves paying minimum payments on all debts while directing all extra money toward the smallest balance first. Once the smallest debt is paid off, its freed payment rolls into the next smallest — creating an accelerating payoff effect. The snowball method delivers quick psychological wins that help people stay motivated."}},
-    {"@type":"Question","name":"What is the debt avalanche method?","acceptedAnswer":{"@type":"Answer","text":"The debt avalanche method directs extra payments toward the highest interest rate debt first. It is mathematically optimal and always saves more money in total interest than the snowball method when debts have different rates. The trade-off is that early wins may take longer to appear."}},
-    {"@type":"Question","name":"Which method saves more money?","acceptedAnswer":{"@type":"Answer","text":"The avalanche method always saves more money in total interest paid. The difference can range from hundreds to thousands of dollars depending on your debt mix. Use the Compare Both option to see the exact dollar difference for your specific debts."}},
-    {"@type":"Question","name":"What is the rollover effect?","acceptedAnswer":{"@type":"Answer","text":"When a debt is fully paid off, instead of absorbing that freed payment into spending, you immediately redirect it to the next priority debt. This creates an ever-growing payment directed at fewer remaining debts — dramatically accelerating your debt-free timeline."}},
-    {"@type":"Question","name":"What is a debt-to-income ratio?","acceptedAnswer":{"@type":"Answer","text":"Your debt-to-income (DTI) ratio is your total monthly debt payments divided by your gross monthly income, expressed as a percentage. Lenders use DTI to assess borrowing risk. Under 20% is excellent, 20-35% is manageable, 36-50% is concerning, and above 50% means debt is consuming most of your income and should be addressed urgently."}},
-    {"@type":"Question","name":"How can a side hustle help pay off debt faster?","acceptedAnswer":{"@type":"Answer","text":"Even a modest side hustle earning $300-500 per month directed entirely at your priority debt can shave years off your debt-free timeline. Common options include rideshare driving, food delivery, freelance work, selling unused household items, dog walking, and tutoring. The key is to commit 100% of side hustle income to debt payoff rather than lifestyle spending."}},
-    {"@type":"Question","name":"Should I pay off debt or build savings first?","acceptedAnswer":{"@type":"Answer","text":"Build a $1,000 starter emergency fund first, then capture any employer retirement match, then aggressively pay high-interest debt above 7-8%. High-interest credit card debt costs more than any guaranteed investment returns, making payoff the mathematical priority — but a small emergency buffer prevents you from going deeper into debt when unexpected costs arise."}},
-    {"@type":"Question","name":"When should I speak with a credit counsellor?","acceptedAnswer":{"@type":"Answer","text":"Consider non-profit credit counselling if your total minimum payments exceed 20% of take-home pay, you are missing payments, using credit cards for groceries, or feel genuinely overwhelmed. Credit Counselling Canada and the NFCC (US) offer free guidance and can negotiate with creditors on your behalf."}}
+    {"@type":"Question","name":"What is the debt avalanche method?","acceptedAnswer":{"@type":"Answer","text":"The debt avalanche method directs extra payments toward the highest interest rate debt first. It is mathematically optimal and always saves more money in total interest than the snowball method when debts have different rates."}},
+    {"@type":"Question","name":"Which method saves more money?","acceptedAnswer":{"@type":"Answer","text":"The avalanche method always saves more money in total interest paid. Use the Compare Both option to see the exact dollar difference for your specific debts."}},
+    {"@type":"Question","name":"What is the rollover effect?","acceptedAnswer":{"@type":"Answer","text":"When a debt is fully paid off, instead of spending that freed payment, you immediately redirect it to the next priority debt. This creates an ever-growing payment directed at fewer remaining debts — dramatically accelerating your debt-free timeline."}},
+    {"@type":"Question","name":"What is a debt-to-income ratio?","acceptedAnswer":{"@type":"Answer","text":"Your DTI ratio is your total monthly debt payments divided by your gross monthly income. Under 20% is excellent, 20-35% is manageable, 36-50% is concerning, and above 50% means debt is consuming most of your income."}},
+    {"@type":"Question","name":"How can a side hustle help pay off debt faster?","acceptedAnswer":{"@type":"Answer","text":"Even a modest side hustle earning $300-500 per month directed entirely at your priority debt can shave years off your debt-free timeline. Common options include rideshare driving, food delivery, freelance work, selling unused items, dog walking, and tutoring."}},
+    {"@type":"Question","name":"Should I pay off debt or build savings first?","acceptedAnswer":{"@type":"Answer","text":"Build a $1,000 starter emergency fund first, then capture any employer retirement match, then aggressively pay high-interest debt above 7-8%."}},
+    {"@type":"Question","name":"When should I speak with a credit counsellor?","acceptedAnswer":{"@type":"Answer","text":"Consider non-profit credit counselling if your total minimum payments exceed 20% of take-home pay, you are missing payments, using credit cards for groceries, or feel genuinely overwhelmed. Credit Counselling Canada and the NFCC (US) offer free guidance."}}
   ]
 }
 </script>
@@ -53,7 +53,7 @@
   .hero h1{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.2;}
   .hero h1 span{color:var(--red);font-style:italic;}
   .hero p{font-size:0.78rem;color:var(--muted);line-height:1.8;max-width:520px;margin:0 auto;}
-  .method-selector{display:grid;grid-template-columns:repeat(4,1fr) 1fr 1fr;gap:1rem;margin-bottom:2rem;}
+  .method-selector{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem;}
   .method-card{background:var(--cream);border:2px solid var(--border);border-radius:4px;padding:1.2rem;cursor:pointer;transition:border-color 0.2s,background 0.2s;text-align:center;}
   .method-card:hover{border-color:var(--sage);}
   .method-card.active{border-color:var(--sage);background:var(--sage-pale);}
@@ -78,7 +78,6 @@
   .calc-btn{width:100%;background:var(--sage);color:white;border:none;border-radius:2px;padding:1rem;font-family:'DM Mono',monospace;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.1s;margin-bottom:2rem;}
   .calc-btn:hover{background:#3d6849;}
   .calc-btn:active{transform:scale(0.99);}
-  /* Results */
   .results{opacity:0;transform:translateY(10px);transition:opacity 0.4s,transform 0.4s;}
   .results.visible{opacity:1;transform:translateY(0);}
   .summary-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:2rem;}
@@ -91,7 +90,6 @@
   .s-card.highlight .s-card-value{color:var(--sage);}
   .s-card.gold .s-card-value{color:var(--gold);}
   .s-card-sub{font-size:0.68rem;color:var(--muted);line-height:1.5;}
-  /* Countdown ring */
   .countdown-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
   .ring-svg{flex-shrink:0;}
   .ring-track{fill:none;stroke:var(--border);stroke-width:8;}
@@ -99,9 +97,8 @@
   .ring-label{text-anchor:middle;dominant-baseline:middle;font-family:'DM Mono',monospace;fill:var(--ink);}
   .countdown-info{flex:1;}
   .countdown-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--sage);margin-bottom:0.5rem;}
-  .countdown-sub{font-size:0.75rem;color:var(--muted);line-height:1.8;}
   .countdown-stat{font-size:0.88rem;color:var(--ink);margin-top:0.4rem;}
-  /* Min vs strategy */
+  .countdown-sub{font-size:0.72rem;color:var(--muted);line-height:1.8;margin-top:0.6rem;}
   .min-vs{background:var(--red-pale);border:1px solid var(--red);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
   .min-vs-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
   .min-vs-title::after{content:'';flex:1;height:1px;background:#d8a0a0;}
@@ -115,7 +112,6 @@
   .min-vs-card.good .min-vs-val{color:var(--sage);}
   .min-vs-sub{font-size:0.68rem;color:var(--muted);}
   .savings-badge{display:inline-block;background:var(--sage);color:white;font-size:0.65rem;letter-spacing:0.08em;padding:0.25rem 0.6rem;border-radius:2px;margin-top:0.5rem;text-transform:uppercase;}
-  /* DTI */
   .dti-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
   .dti-title{font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
   .dti-title::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -126,7 +122,6 @@
   .dti-bar{height:100%;border-radius:7px;transition:width 0.8s ease,background 0.3s;}
   .dti-status{font-size:0.8rem;font-weight:500;margin-bottom:0.3rem;}
   .dti-note{font-size:0.72rem;color:var(--muted);line-height:1.6;}
-  /* Lump sum */
   .lump-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
   .lump-title{font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
   .lump-title::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -134,7 +129,6 @@
   .lump-result{display:none;background:var(--green-pale);border-left:3px solid var(--green);padding:0.8rem 1rem;border-radius:0 2px 2px 0;font-size:0.78rem;color:var(--green);line-height:1.6;margin-top:0.5rem;}
   .lump-result.visible{display:block;}
   .lump-result strong{color:var(--ink);}
-  /* Timeline */
   .timeline-section{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
   .timeline-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.5rem;}
   .timeline-title::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -166,7 +160,6 @@
   .btn-gold:hover{background:#b07820;}
   .btn-small{background:var(--sage);color:white;border:none;border-radius:2px;padding:0.65rem 1rem;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
   .btn-small:hover{background:#3d6849;}
-  /* Content */
   .content-wrap{max-width:920px;margin:0 auto;padding:0 2rem;}
   .ad-slot{background:var(--cream);border:1px dashed var(--border);text-align:center;padding:0.8rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;margin:2rem 0;}
   .ad-box{background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.3rem;color:var(--muted);font-size:0.7rem;}
@@ -196,14 +189,12 @@
   .tip-icon{font-size:1.4rem;margin-bottom:0.4rem;}
   .tip-title{font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.4rem;}
   .tip-text{font-size:0.72rem;color:var(--muted);line-height:1.7;}
-  /* Gig income */
   .gig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem;}
   .gig-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;text-align:center;}
   .gig-icon{font-size:1.6rem;margin-bottom:0.4rem;}
   .gig-title{font-size:0.75rem;font-weight:500;color:var(--sage);margin-bottom:0.3rem;}
   .gig-range{font-size:0.7rem;color:var(--gold);font-weight:500;margin-bottom:0.3rem;}
   .gig-tip{font-size:0.65rem;color:var(--muted);line-height:1.6;}
-  /* Counsellor */
   .counsellor-section{background:#fdf3e0;border:1px solid var(--gold);border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
   .counsellor-section h2{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--gold);margin-bottom:0.8rem;}
   .counsellor-section p{font-size:0.82rem;line-height:1.9;color:var(--ink);margin-bottom:0.8rem;}
@@ -219,13 +210,13 @@
   .faq-item.open .faq-a{display:block;}
   .tools-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
   .tools-panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;color:var(--ink);padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
-  .tools-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+  .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
   .tool-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;text-decoration:none;color:var(--ink);transition:border-color 0.2s,box-shadow 0.2s;display:block;}
   .tool-card:hover{border-color:var(--sage);box-shadow:0 2px 8px rgba(74,124,89,0.12);}
   .tool-icon{font-size:1.4rem;margin-bottom:0.4rem;}
-  .tool-name{font-size:0.8rem;font-weight:500;color:var(--sage);margin-bottom:0.3rem;}
-  .tool-desc{font-size:0.68rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem;}
-  .tool-link{font-size:0.65rem;color:var(--gold);letter-spacing:0.05em;}
+  .tool-name{font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.3rem;}
+  .tool-desc{font-size:0.65rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem;}
+  .tool-link{font-size:0.63rem;color:var(--gold);letter-spacing:0.05em;}
   .modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,26,15,0.5);z-index:200;align-items:center;justify-content:center;}
   .modal-overlay.open{display:flex;}
   .modal{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;width:100%;max-width:400px;margin:1rem;}
@@ -239,7 +230,8 @@
   footer{text-align:center;padding:1.5rem 2rem;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;border-top:1px solid var(--border);margin-top:1rem;line-height:2;}
   footer a{color:var(--sage);text-decoration:none;}
   footer a:hover{color:var(--gold);}
-  @media(max-width:640px){header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.method-selector{grid-template-columns:1fr;}.settings-bar{grid-template-columns:1fr;}.debt-row{grid-template-columns:1fr 1fr;}.summary-cards{grid-template-columns:1fr;}.comparison-grid{grid-template-columns:1fr;}.min-vs-grid{grid-template-columns:1fr;}.method-compare{grid-template-columns:1fr;}.tips-grid{grid-template-columns:1fr;}.gig-grid{grid-template-columns:1fr 1fr;}.counsellor-points{grid-template-columns:1fr;}.tools-grid{grid-template-columns:1fr;}.share-row{grid-template-columns:1fr;}.dti-row{grid-template-columns:1fr;}.lump-row{grid-template-columns:1fr;}.countdown-panel{flex-direction:column;}.steps-grid{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
+  @media(max-width:640px){header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.method-selector{grid-template-columns:1fr;}.settings-bar{grid-template-columns:1fr;}.debt-row{grid-template-columns:1fr 1fr;}.summary-cards{grid-template-columns:1fr;}.comparison-grid{grid-template-columns:1fr;}.min-vs-grid{grid-template-columns:1fr;}.method-compare{grid-template-columns:1fr;}.tips-grid{grid-template-columns:1fr;}.gig-grid{grid-template-columns:1fr 1fr;}.counsellor-points{grid-template-columns:1fr;}.tools-grid{grid-template-columns:1fr 1fr;}.share-row{grid-template-columns:1fr;}.dti-row{grid-template-columns:1fr;}.lump-row{grid-template-columns:1fr;}.countdown-panel{flex-direction:column;}.steps-grid{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
+  @media(max-width:400px){.tools-grid{grid-template-columns:1fr;}.gig-grid{grid-template-columns:1fr;}}
   @media print{body::before,nav,.ad-slot,.share-row,.btn-add,.btn-remove,.calc-btn,.tools-panel{display:none !important;}.results{opacity:1 !important;transform:none !important;}}
 </style>
 </head>
@@ -249,40 +241,32 @@
   <div class="tagline">Debt Payoff Calculator | debtcrusher.ca</div>
 </header>
 
-<!-- ═══════════════════ CALCULATOR ═══════════════════ -->
 <div class="calc-wrap">
   <div class="hero">
     <h1>Get <span>Debt Free</span> Faster</h1>
     <p>Choose your strategy, enter your debts, and see exactly when you'll be debt free — and how much interest you'll save. Snowball, Avalanche, or compare both side by side.</p>
   </div>
-
   <div class="method-selector">
     <div class="method-card active" onclick="selectMethod('snowball')" id="m-snowball"><div class="method-icon">❄️</div><div class="method-name">Snowball</div><div class="method-desc">Smallest balance first. Build momentum with quick wins.</div></div>
     <div class="method-card" onclick="selectMethod('avalanche')" id="m-avalanche"><div class="method-icon">🏔️</div><div class="method-name">Avalanche</div><div class="method-desc">Highest interest first. Save the most money overall.</div></div>
     <div class="method-card" onclick="selectMethod('compare')" id="m-compare"><div class="method-icon">⚖️</div><div class="method-name">Compare Both</div><div class="method-desc">See Snowball vs Avalanche side by side with exact savings.</div></div>
   </div>
-
   <div class="settings-bar">
     <div><label>Currency</label><select id="currency"><option value="A$">A$ — Australian Dollar</option><option value="R$">R$ — Brazilian Real</option><option value="CA$" selected>CA$ — Canadian Dollar</option><option value="€">€ — Euro</option><option value="£">£ — British Pound</option><option value="$">$ — US Dollar</option></select></div>
-    <div><label>Extra Monthly Payment</label><div class="input-prefix"><span>$</span><input type="number" id="extraPayment" placeholder="0" min="0" value="0" oninput="updateLumpIfNeeded()" /></div></div>
+    <div><label>Extra Monthly Payment</label><div class="input-prefix"><span>$</span><input type="number" id="extraPayment" placeholder="0" min="0" value="0" /></div></div>
     <div><p style="font-size:0.65rem;color:var(--muted);line-height:1.6;">💡 Even $50 extra per month can save hundreds in interest and months off your timeline.</p></div>
   </div>
-
   <div class="debt-section">
     <div class="debt-section-title">Your Debts</div>
     <div class="debt-row" style="margin-bottom:0.3rem;"><label style="margin:0;">Debt Name</label><label style="margin:0;">Balance</label><label style="margin:0;">Interest Rate</label><label style="margin:0;">Min. Payment</label><label></label></div>
     <div id="debtRows"></div>
     <button class="btn-add" onclick="addDebtRow()">+ Add Another Debt</button>
   </div>
-
   <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-bottom:1rem;">✏️ Fill in your debts above, then tap Calculate to see your payoff plan.</p>
   <button class="calc-btn" onclick="calculate()">Calculate My Payoff Plan →</button>
 
   <div class="results" id="results">
-    <!-- Summary cards -->
     <div class="summary-cards" id="summaryCards"></div>
-
-    <!-- Debt-free countdown ring -->
     <div class="countdown-panel" id="countdownPanel">
       <svg class="ring-svg" width="120" height="120" viewBox="0 0 120 120">
         <circle class="ring-track" cx="60" cy="60" r="48"/>
@@ -294,29 +278,16 @@
         <div class="countdown-title" id="countdownTitle">You could be debt free by —</div>
         <div class="countdown-stat" id="countdownStat1"></div>
         <div class="countdown-stat" id="countdownStat2"></div>
-        <div class="countdown-sub" style="margin-top:0.6rem;" id="countdownSub"></div>
+        <div class="countdown-sub" id="countdownSub"></div>
       </div>
     </div>
-
-    <!-- Min only vs strategy -->
     <div class="min-vs" id="minVsPanel">
       <div class="min-vs-title">⚠️ What Happens If You Only Pay Minimums?</div>
       <div class="min-vs-grid">
-        <div class="min-vs-card bad">
-          <div class="min-vs-label">Minimum Payments Only</div>
-          <div class="min-vs-val" id="minMonths">—</div>
-          <div class="min-vs-sub" id="minInterest">—</div>
-        </div>
-        <div class="min-vs-card good">
-          <div class="min-vs-label">Your Payoff Plan</div>
-          <div class="min-vs-val" id="planMonths">—</div>
-          <div class="min-vs-sub" id="planInterest">—</div>
-          <div><span class="savings-badge" id="savingsBadge"></span></div>
-        </div>
+        <div class="min-vs-card bad"><div class="min-vs-label">Minimum Payments Only</div><div class="min-vs-val" id="minMonths">—</div><div class="min-vs-sub" id="minInterest">—</div></div>
+        <div class="min-vs-card good"><div class="min-vs-label">Your Payoff Plan</div><div class="min-vs-val" id="planMonths">—</div><div class="min-vs-sub" id="planInterest">—</div><div><span class="savings-badge" id="savingsBadge"></span></div></div>
       </div>
     </div>
-
-    <!-- DTI calculator -->
     <div class="dti-panel">
       <div class="dti-title">📊 Your Debt-to-Income Ratio</div>
       <div class="dti-row">
@@ -330,8 +301,6 @@
         <div class="dti-note" id="dtiNote"></div>
       </div>
     </div>
-
-    <!-- Lump sum impact -->
     <div class="lump-panel">
       <div class="lump-title">💰 Lump Sum Impact Calculator</div>
       <div class="lump-row">
@@ -341,17 +310,10 @@
       </div>
       <div class="lump-result" id="lumpResult"></div>
     </div>
-
-    <!-- Timeline -->
     <div class="timeline-section"><div class="timeline-title">Payoff Timeline</div><div id="timelineItems"></div></div>
-
-    <!-- Compare -->
     <div class="comparison" id="comparisonSection" style="display:none;"><div class="comparison-title">Snowball vs Avalanche — Side by Side</div><div class="comparison-grid" id="comparisonGrid"></div></div>
-
     <div class="tip-box" id="tipBox"></div>
-
     <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90 Leaderboard</div></div>
-
     <div class="share-row">
       <button class="btn-secondary" onclick="window.print()">🖨️ Print Results</button>
       <button class="btn-gold" onclick="openEmailModal()">✉️ Email Results</button>
@@ -359,105 +321,63 @@
   </div>
 </div>
 
-<!-- ═══════════════════ CONTENT ═══════════════════ -->
 <div class="content-wrap">
-
   <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
-
-  <!-- How it works -->
   <div class="section">
     <h2>How the Debt Payoff Calculator Works</h2>
     <p>DebtCrusher calculates exactly when each of your debts will be paid off under your chosen strategy, how much total interest you will pay, and how that compares to paying only minimums. It uses the correct rollover method — when a debt is fully paid off, its freed minimum payment immediately stacks onto the next priority debt, dramatically accelerating your payoff timeline.</p>
     <div class="steps-grid">
-      <div class="step-card"><div class="step-number">01</div><div class="step-title">Choose Your Strategy</div><div class="step-desc">Select Snowball (smallest balance first), Avalanche (highest interest first), or Compare Both to see the exact difference in time and money between both methods for your specific debts.</div></div>
-      <div class="step-card"><div class="step-number">02</div><div class="step-title">Enter Your Debts</div><div class="step-desc">Add each debt with its name, current balance, annual interest rate and minimum monthly payment. Add as many debts as you have — credit cards, car loans, lines of credit, student loans.</div></div>
+      <div class="step-card"><div class="step-number">01</div><div class="step-title">Choose Your Strategy</div><div class="step-desc">Select Snowball (smallest balance first), Avalanche (highest interest first), or Compare Both to see the exact difference in time and money for your specific debts.</div></div>
+      <div class="step-card"><div class="step-number">02</div><div class="step-title">Enter Your Debts</div><div class="step-desc">Add each debt with its name, current balance, annual interest rate and minimum monthly payment. Add as many as you have — credit cards, car loans, lines of credit, student loans.</div></div>
       <div class="step-card"><div class="step-number">03</div><div class="step-title">See Your Full Plan</div><div class="step-desc">See your debt-free date, total interest cost, minimum-only comparison, DTI ratio, and lump sum impact. Use the extra monthly payment field to find your fastest possible payoff path.</div></div>
     </div>
-
     <h3>The Rollover Effect — Why These Methods Work</h3>
-    <p>The single most important concept in strategic debt payoff is the rollover effect. Most people pay only the minimum on all their debts and wonder why it takes so long to make progress. The rollover method is fundamentally different and far more powerful.</p>
-    <p>When you fully pay off a debt, instead of absorbing that freed payment into your general spending, you immediately redirect the entire amount to your next priority debt — on top of that debt's existing minimum payment. Each time a debt is eliminated, the total payment directed at remaining debts grows larger. The result is an accelerating payoff where each successive debt falls faster than the one before it. On a typical $25,000 mixed debt load, the rollover method can save 18-36 months compared to paying only minimums.</p>
-
-    <h3>Snowball vs Avalanche — A Clear Comparison</h3>
+    <p>The single most important concept in strategic debt payoff is the rollover effect. When you fully pay off a debt, instead of absorbing that freed payment into your general spending, you immediately redirect the entire amount to your next priority debt — on top of that debt's existing minimum payment. Each time a debt is eliminated, the total payment directed at remaining debts grows larger. The result is an accelerating payoff where each successive debt falls faster than the one before it.</p>
+    <h3>Snowball vs Avalanche</h3>
     <div class="method-compare">
-      <div class="method-box snowball">
-        <h3>❄️ Debt Snowball</h3>
-        <p>Pay extra toward the <strong>smallest balance</strong> first, regardless of interest rate.</p>
-        <ul>
-          <li>Delivers first payoff fastest</li>
-          <li>Strong psychological momentum</li>
-          <li>Higher completion rates in research</li>
-          <li>Costs more in total interest</li>
-          <li>Best for: people motivated by quick wins</li>
-        </ul>
-      </div>
-      <div class="method-box avalanche">
-        <h3>🏔️ Debt Avalanche</h3>
-        <p>Pay extra toward the <strong>highest interest rate</strong> debt first, regardless of balance.</p>
-        <ul>
-          <li>Minimizes total interest paid</li>
-          <li>Mathematically optimal strategy</li>
-          <li>First payoff may take longer</li>
-          <li>Requires patience and discipline</li>
-          <li>Best for: people motivated by numbers</li>
-        </ul>
-      </div>
+      <div class="method-box snowball"><h3>❄️ Debt Snowball</h3><p>Pay extra toward the <strong>smallest balance</strong> first, regardless of interest rate.</p><ul><li>Delivers first payoff fastest</li><li>Strong psychological momentum</li><li>Higher completion rates in research</li><li>Costs more in total interest</li><li>Best for: people motivated by quick wins</li></ul></div>
+      <div class="method-box avalanche"><h3>🏔️ Debt Avalanche</h3><p>Pay extra toward the <strong>highest interest rate</strong> debt first, regardless of balance.</p><ul><li>Minimizes total interest paid</li><li>Mathematically optimal strategy</li><li>First payoff may take longer</li><li>Requires patience and discipline</li><li>Best for: people motivated by numbers</li></ul></div>
     </div>
   </div>
-
   <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
-
-  <!-- Boost income -->
   <div class="section">
     <h2>💡 Boost Your Payoff — Extra Income Ideas</h2>
-    <p>The fastest way to pay off debt is to increase the amount going toward your priority debt each month. Even an extra $200-$500 per month can cut years off your timeline and save thousands in interest. Here are realistic ways to generate extra income — many of which can be started immediately with no upfront investment.</p>
-    <p>The key principle: direct 100% of any side income to your priority debt, not to lifestyle spending. Every dollar earned through a side hustle that goes straight to debt is worth more than a dollar of saved spending — because it also reduces the balance that interest compounds on the following month.</p>
-
+    <p>The fastest way to pay off debt is to increase the amount going toward your priority debt each month. Even an extra $200-$500 per month can cut years off your timeline and save thousands in interest. The key: direct 100% of any side income to your priority debt.</p>
     <div class="gig-grid">
       <div class="gig-card"><div class="gig-icon">🚗</div><div class="gig-title">Rideshare Driving</div><div class="gig-range">$300–$1,200/mo</div><div class="gig-tip">Uber or Lyft. Flexible hours — even 8-10 hrs/week adds up. Peak times (Friday nights, weekends) maximize earnings per hour.</div></div>
-      <div class="gig-card"><div class="gig-icon">🛵</div><div class="gig-title">Food Delivery</div><div class="gig-range">$200–$800/mo</div><div class="gig-tip">DoorDash, Uber Eats, Skip The Dishes (Canada). Use a bike in urban areas to cut fuel costs. Lunchtime and dinner rush are most profitable.</div></div>
-      <div class="gig-card"><div class="gig-icon">📦</div><div class="gig-title">Sell Surplus Items</div><div class="gig-range">$100–$500/mo</div><div class="gig-tip">Facebook Marketplace, Kijiji (Canada) or eBay. Start with one room at a time. Electronics, tools and baby gear sell fastest. No inventory cost.</div></div>
-      <div class="gig-card"><div class="gig-icon">🛒</div><div class="gig-title">Grocery / Errand Delivery</div><div class="gig-range">$200–$600/mo</div><div class="gig-tip">Instacart, Shipt, TaskRabbit. Grocery delivery pays well in suburban areas. Combine with rideshare for maximum hourly rate.</div></div>
-      <div class="gig-card"><div class="gig-icon">💻</div><div class="gig-title">Freelance Your Skills</div><div class="gig-range">$500–$3,000/mo</div><div class="gig-tip">Writing, design, coding, bookkeeping, social media management. Upwork and Fiverr to start. Highest hourly rate of any gig — but requires a marketable skill.</div></div>
-      <div class="gig-card"><div class="gig-icon">🐕</div><div class="gig-title">Pet Sitting / Dog Walking</div><div class="gig-range">$200–$700/mo</div><div class="gig-tip">Rover, Wag or local clients. Overnight pet sitting pays $50-80/night. Dog walking at $20-25/walk. Low startup cost — just time and a love of animals.</div></div>
-      <div class="gig-card"><div class="gig-icon">📚</div><div class="gig-title">Tutoring / Teaching</div><div class="gig-range">$200–$1,000/mo</div><div class="gig-tip">In-person or online tutoring for K-12 or university subjects. Online platforms like Wyzant or Superprof. Language tutoring (English, French) is in high demand.</div></div>
-      <div class="gig-card"><div class="gig-icon">🏠</div><div class="gig-title">Rent a Room / Space</div><div class="gig-range">$400–$1,500/mo</div><div class="gig-tip">Airbnb, VRBO or a long-term boarder. Even renting a basement or spare room part-time generates substantial monthly income. Check local bylaws first.</div></div>
+      <div class="gig-card"><div class="gig-icon">🛵</div><div class="gig-title">Food Delivery</div><div class="gig-range">$200–$800/mo</div><div class="gig-tip">DoorDash, Uber Eats, Skip The Dishes (Canada). Lunchtime and dinner rush are most profitable.</div></div>
+      <div class="gig-card"><div class="gig-icon">📦</div><div class="gig-title">Sell Surplus Items</div><div class="gig-range">$100–$500/mo</div><div class="gig-tip">Facebook Marketplace, Kijiji (Canada) or eBay. Start with one room at a time. Electronics, tools and baby gear sell fastest.</div></div>
+      <div class="gig-card"><div class="gig-icon">🛒</div><div class="gig-title">Grocery Delivery</div><div class="gig-range">$200–$600/mo</div><div class="gig-tip">Instacart, Shipt, TaskRabbit. Grocery delivery pays well in suburban areas.</div></div>
+      <div class="gig-card"><div class="gig-icon">💻</div><div class="gig-title">Freelance Your Skills</div><div class="gig-range">$500–$3,000/mo</div><div class="gig-tip">Writing, design, coding, bookkeeping. Upwork and Fiverr to start. Highest hourly rate of any gig.</div></div>
+      <div class="gig-card"><div class="gig-icon">🐕</div><div class="gig-title">Pet Sitting / Dog Walking</div><div class="gig-range">$200–$700/mo</div><div class="gig-tip">Rover, Wag or local clients. Overnight pet sitting pays $50-80/night. Low startup cost.</div></div>
+      <div class="gig-card"><div class="gig-icon">📚</div><div class="gig-title">Tutoring / Teaching</div><div class="gig-range">$200–$1,000/mo</div><div class="gig-tip">In-person or online tutoring. Platforms like Wyzant or Superprof. Language tutoring is in high demand.</div></div>
+      <div class="gig-card"><div class="gig-icon">🏠</div><div class="gig-title">Rent a Room / Space</div><div class="gig-range">$400–$1,500/mo</div><div class="gig-tip">Airbnb, VRBO or a long-term boarder. Even renting a basement part-time generates substantial monthly income.</div></div>
     </div>
-
-    <h3>How Extra Income Accelerates Debt Payoff</h3>
-    <p>Use the Extra Monthly Payment field in the calculator above to see exactly how any side income amount changes your debt-free date. As an example: on $19,000 total debt at an average rate of 15%, adding $300/month from a part-time side hustle can reduce your payoff timeline by 14-18 months and save over $2,000 in interest compared to minimum-only payments. The impact grows larger the higher your interest rates are.</p>
-    <p>Income varies significantly by market, hours worked, platform and individual effort. Results above are realistic ranges — not guarantees. Track your side income carefully and set aside a portion for taxes if self-employed.</p>
   </div>
-
-  <!-- Tips -->
   <div class="section">
     <h2>Six Strategies to Pay Off Debt Faster</h2>
     <div class="tips-grid">
-      <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">List Every Debt in One Place</div><div class="tip-text">The first step is complete awareness. List every debt — credit cards, car loans, lines of credit, student loans, buy-now-pay-later balances, family loans — with exact balance, interest rate and minimum payment. Many people underestimate their total debt because it is spread across accounts. Seeing the complete picture is uncomfortable but essential.</div></div>
-      <div class="tip-card"><div class="tip-icon">⚙️</div><div class="tip-title">Automate All Minimum Payments</div><div class="tip-text">Set up automatic payments for the minimum on every debt immediately. Missing a payment triggers late fees, penalty interest rates and credit score damage — all of which make your debt harder to pay off. Automating minimums lets you focus all decision-making energy on the priority debt extra payment rather than juggling due dates manually.</div></div>
-      <div class="tip-card"><div class="tip-icon">💰</div><div class="tip-title">Apply Every Windfall to Debt</div><div class="tip-text">Tax refunds, work bonuses, overtime pay, gifts, inheritance and any side hustle income should go 100% to your priority debt. Even one $1,000 lump sum early in your payoff journey can save $300-500 in interest and move your debt-free date forward by months. Use the Lump Sum Impact Calculator above to see the exact benefit of any windfall for your specific debts.</div></div>
-      <div class="tip-card"><div class="tip-icon">✂️</div><div class="tip-title">Cut One Expense and Redirect It</div><div class="tip-text">Find one non-essential monthly expense to eliminate temporarily — a streaming subscription, a gym membership, a takeout habit. Redirect that exact dollar amount to your priority debt every month. The psychological power is in the direct connection between the sacrifice and the goal. Even $40-$80 per month adds up to $480-$960 per year applied to debt principal.</div></div>
-      <div class="tip-card"><div class="tip-icon">🔄</div><div class="tip-title">Consider a Balance Transfer</div><div class="tip-text">A 0% promotional balance transfer can be powerful for high-rate credit card debt. Moving a balance to a card offering 0% for 12-21 months means 100% of your payment reduces principal during the promotional period. Key rules: a 3-5% transfer fee typically applies, you must clear the balance before the promotion ends, and discipline is required not to re-charge the original card.</div></div>
-      <div class="tip-card"><div class="tip-icon">📈</div><div class="tip-title">Increase Income Temporarily</div><div class="tip-text">Even a short 6-12 month sprint of higher income directed at debt can change your financial trajectory permanently. See the side hustle ideas above for realistic options. Treat it as a temporary sacrifice with a specific end date tied to paying off your most expensive debt. Once that high-rate debt is gone, the freed payment rolls to the next — without the side hustle income even being needed anymore.</div></div>
+      <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">List Every Debt in One Place</div><div class="tip-text">The first step is complete awareness. List every debt — credit cards, car loans, lines of credit, student loans, buy-now-pay-later balances, family loans — with exact balance, interest rate and minimum payment. You cannot create an effective payoff plan without knowing your starting point.</div></div>
+      <div class="tip-card"><div class="tip-icon">⚙️</div><div class="tip-title">Automate All Minimum Payments</div><div class="tip-text">Set up automatic payments for the minimum on every debt immediately. Missing a payment triggers late fees, penalty interest rates and credit score damage. Automating minimums lets you focus all energy on the priority debt extra payment rather than juggling due dates manually.</div></div>
+      <div class="tip-card"><div class="tip-icon">💰</div><div class="tip-title">Apply Every Windfall to Debt</div><div class="tip-text">Tax refunds, work bonuses, overtime pay, gifts, inheritance and any side hustle income should go 100% to your priority debt. Use the Lump Sum Impact Calculator above to see the exact benefit of any windfall for your specific debts.</div></div>
+      <div class="tip-card"><div class="tip-icon">✂️</div><div class="tip-title">Cut One Expense and Redirect It</div><div class="tip-text">Find one non-essential monthly expense to eliminate temporarily — a streaming subscription, gym membership, takeout habit. Redirect that exact dollar amount to your priority debt every month. Even $40-$80 per month adds up to $480-$960 per year applied to debt principal.</div></div>
+      <div class="tip-card"><div class="tip-icon">🔄</div><div class="tip-title">Consider a Balance Transfer</div><div class="tip-text">A 0% promotional balance transfer can be powerful for high-rate credit card debt. Moving a balance to a card offering 0% for 12-21 months means 100% of your payment reduces principal. Key: a 3-5% transfer fee applies, and you must clear the balance before the promotion ends.</div></div>
+      <div class="tip-card"><div class="tip-icon">📈</div><div class="tip-title">Increase Income Temporarily</div><div class="tip-text">Even a short 6-12 month sprint of higher income directed at debt can change your financial trajectory permanently. See the side hustle ideas above for realistic options. Treat it as a temporary sacrifice with a specific end date tied to paying off your most expensive debt.</div></div>
     </div>
   </div>
-
-  <!-- Reference table -->
   <div class="section">
     <h2>Debt Payoff Reference — Extra Payments Make a Big Difference</h2>
-    <p>Here is the real impact of adding extra monthly payments to common credit card debt balances at a standard 19.99% interest rate. Minimum payments alone barely cover monthly interest on high-rate cards.</p>
+    <p>Here is the real impact of adding extra monthly payments to common credit card debt balances at a standard 19.99% interest rate.</p>
     <div style="overflow-x:auto;margin-top:1rem;">
       <table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
-        <thead>
-          <tr style="border-bottom:2px solid var(--border);">
-            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Balance</th>
-            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Rate</th>
-            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Min Only</th>
-            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">+$100/mo</th>
-            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">+$300/mo</th>
-            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Interest Saved</th>
-          </tr>
-        </thead>
+        <thead><tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Balance</th>
+          <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Rate</th>
+          <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Min Only</th>
+          <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">+$100/mo</th>
+          <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">+$300/mo</th>
+          <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Interest Saved</th>
+        </tr></thead>
         <tbody>
           <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">$2,000</td><td style="padding:0.7rem 0.8rem;color:var(--muted);">19.99%</td><td style="padding:0.7rem 0.8rem;">~11 years</td><td style="padding:0.7rem 0.8rem;">~20 months</td><td style="padding:0.7rem 0.8rem;">~8 months</td><td style="padding:0.7rem 0.8rem;color:var(--sage);font-weight:500;">~$1,900</td></tr>
           <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">$5,000</td><td style="padding:0.7rem 0.8rem;color:var(--muted);">19.99%</td><td style="padding:0.7rem 0.8rem;">~30 years</td><td style="padding:0.7rem 0.8rem;">~58 months</td><td style="padding:0.7rem 0.8rem;">~20 months</td><td style="padding:0.7rem 0.8rem;color:var(--sage);font-weight:500;">~$5,200</td></tr>
@@ -466,46 +386,40 @@
         </tbody>
       </table>
     </div>
-    <p style="font-size:0.68rem;color:var(--muted);margin-top:0.8rem;font-style:italic;">*At 19.99%, a 2% minimum payment on $10,000 barely covers interest. Even $100 extra makes an enormous difference. Use the calculator above for your exact numbers.</p>
+    <p style="font-size:0.68rem;color:var(--muted);margin-top:0.8rem;font-style:italic;">*At 19.99%, a 2% minimum payment on $10,000 barely covers interest. Use the calculator above for your exact numbers.</p>
   </div>
-
-  <!-- Credit counsellor -->
   <div class="counsellor-section">
     <h2>🤝 When to Speak With a Licensed Credit Counsellor</h2>
     <p>DebtCrusher helps you plan your payoff. For anyone feeling genuinely overwhelmed, non-profit credit counselling is one of the smartest financial decisions you can make — and it is free or very low cost in both Canada and the US.</p>
     <div class="counsellor-points">
       <div class="counsellor-point"><strong>Signs You Should Seek Help</strong>Your minimum payments exceed 20% of take-home pay. You are missing payments or paying only minimums indefinitely. You are using credit cards to cover groceries or utilities. You feel overwhelmed and don't know where to start.</div>
       <div class="counsellor-point"><strong>Free in Canada &amp; the US</strong>Credit Counselling Canada member agencies offer free or nominal-cost services. In the US, look for NFCC (National Foundation for Credit Counseling) member agencies. Both are non-profit and regulated.</div>
-      <div class="counsellor-point"><strong>What They Can Do for You</strong>Licensed counsellors can contact creditors directly to negotiate reduced interest rates, waived fees and structured repayment plans. A Debt Management Plan (DMP) through a counsellor may achieve better terms than you could negotiate independently.</div>
-      <div class="counsellor-point"><strong>It Is Never a Sign of Failure</strong>Seeking professional help with debt is a courageous and practical financial decision. The sooner you get an objective expert view, the more options you will have. Counsellors have seen every situation — they are there to help, not to judge.</div>
+      <div class="counsellor-point"><strong>What They Can Do for You</strong>Licensed counsellors can contact creditors directly to negotiate reduced interest rates, waived fees and structured repayment plans — often achieving better terms than you could negotiate independently.</div>
+      <div class="counsellor-point"><strong>It Is Never a Sign of Failure</strong>Seeking professional help with debt is a courageous and practical financial decision. The sooner you get an objective expert view, the more options you will have available to you.</div>
     </div>
     <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;font-style:italic;">DebtCrusher does not recommend specific agencies and does not receive compensation for referrals. In Canada: creditcounsellingcanada.ca. In the US: nfcc.org. This is general guidance — not financial advice.</p>
   </div>
-
-  <!-- FAQ -->
   <div class="section">
     <h2>Frequently Asked Questions — Debt Payoff</h2>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the debt snowball method?</div><div class="faq-a">The debt snowball method involves paying minimum payments on all debts while directing all extra money toward the smallest balance first, regardless of interest rate. Once the smallest debt is paid off, its freed minimum payment rolls into the next smallest debt. The snowball method delivers quick psychological wins early in the process, which research shows helps people stay motivated and complete their debt payoff plan.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the debt avalanche method?</div><div class="faq-a">The debt avalanche method directs all extra payments toward the highest interest rate debt first, regardless of balance. Once the highest-rate debt is eliminated, that payment rolls to the next highest rate. The avalanche method minimizes total interest paid over the life of your debts and is mathematically the optimal strategy. The trade-off is that the first payoff may take longer to achieve, requiring more discipline to stay motivated.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which method saves more money — Snowball or Avalanche?</div><div class="faq-a">The avalanche method always saves more total interest when your debts have different interest rates. The dollar difference depends on how far apart your rates are and how large your balances are. With similar rates the difference is small — a few hundred dollars. With one very high-rate credit card alongside lower-rate debts, the difference can be significant. Use the Compare Both feature above to see the exact difference for your specific debts.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the rollover effect?</div><div class="faq-a">When you fully pay off a debt, instead of spending the freed minimum payment, you immediately redirect it to your next priority debt on top of that debt's existing minimum payment. This creates an ever-growing payment directed at fewer remaining debts. Each debt eliminated accelerates the payoff of the next one — dramatically shortening your total debt-free timeline compared to paying only minimums on all debts simultaneously.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is a debt-to-income (DTI) ratio?</div><div class="faq-a">Your DTI ratio is your total monthly debt payments divided by your gross monthly income, expressed as a percentage. Lenders use DTI to assess risk when you apply for credit. Under 20% is considered excellent. 20-35% is manageable. 36-50% is concerning and may limit borrowing options. Above 50% means debt is consuming most of your income and should be addressed urgently. Use the DTI calculator in the results panel above to check your ratio.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How can a side hustle help pay off debt faster?</div><div class="faq-a">Even a modest side hustle earning $300-500 per month directed entirely at your priority debt can shave years off your timeline. Common options include rideshare driving, food delivery, freelance work in your existing skills, selling unused household items, pet sitting and tutoring. The critical rule is to commit 100% of side income to debt payoff — not lifestyle spending. Use the Extra Monthly Payment field above to see exactly how any amount changes your debt-free date.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Should I pay off debt or build savings first?</div><div class="faq-a">Build a $1,000 starter emergency fund first — so unexpected costs don't force you deeper into debt. Then capture any employer RRSP or 401(k) matching — that is an immediate 50-100% guaranteed return. Then aggressively pay down high-interest debt above 7-8%. High-rate credit card debt costs more than any guaranteed investment can return, making payoff the mathematical priority. Having a small emergency buffer prevents the common cycle of paying off and immediately re-charging debt.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When should I speak with a credit counsellor?</div><div class="faq-a">Consider non-profit credit counselling if your minimum payments exceed 20% of take-home pay, you are missing payments, using credit cards for basic living expenses, or feeling genuinely overwhelmed. Credit Counselling Canada member agencies and NFCC member agencies in the US offer free or low-cost guidance and can negotiate with creditors on your behalf. Seeking professional help is a smart financial decision — the sooner you get expert guidance, the more options you will have available.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which method saves more money — Snowball or Avalanche?</div><div class="faq-a">The avalanche method always saves more total interest when your debts have different interest rates. The dollar difference depends on how far apart your rates are and how large your balances are. Use the Compare Both feature above to see the exact difference for your specific debts.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the rollover effect?</div><div class="faq-a">When you fully pay off a debt, instead of spending the freed minimum payment, you immediately redirect it to your next priority debt on top of that debt's existing minimum payment. This creates an ever-growing payment directed at fewer remaining debts — dramatically shortening your total debt-free timeline.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is a debt-to-income (DTI) ratio?</div><div class="faq-a">Your DTI ratio is your total monthly debt payments divided by your gross monthly income, expressed as a percentage. Under 20% is excellent. 20-35% is manageable. 36-50% is concerning. Above 50% means debt is consuming most of your income and should be addressed urgently. Use the DTI calculator in the results panel above to check your ratio.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How can a side hustle help pay off debt faster?</div><div class="faq-a">Even a modest side hustle earning $300-500 per month directed entirely at your priority debt can shave years off your timeline. Common options include rideshare driving, food delivery, freelance work, selling unused household items, pet sitting and tutoring. The critical rule: commit 100% of side income to debt payoff — not lifestyle spending.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Should I pay off debt or build savings first?</div><div class="faq-a">Build a $1,000 starter emergency fund first so unexpected costs don't force you deeper into debt. Then capture any employer RRSP or 401(k) matching — that is an immediate 50-100% guaranteed return. Then aggressively pay down high-interest debt above 7-8%. High-rate credit card debt costs more than any guaranteed investment can return, making payoff the mathematical priority.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When should I speak with a credit counsellor?</div><div class="faq-a">Consider non-profit credit counselling if your minimum payments exceed 20% of take-home pay, you are missing payments, using credit cards for basic living expenses, or feeling genuinely overwhelmed. Credit Counselling Canada member agencies and NFCC member agencies in the US offer free or low-cost guidance and can negotiate with creditors on your behalf.</div></div>
   </div>
-
   <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
-
   <div class="tools-panel">
     <div class="tools-panel-title">More Free Tools from Sharpline</div>
     <div class="tools-grid">
       <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🎯</div><div class="tool-name">Savings Goal Tracker</div><div class="tool-desc">Once debt free, use your freed payments as savings contributions — see when you'll hit any goal.</div><div class="tool-link">vaultgoal.com →</div></a>
       <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">📊</div><div class="tool-name">50/30/20 Budget Calculator</div><div class="tool-desc">Find extra money in your budget to redirect toward debt payoff every month.</div><div class="tool-link">503020.ca →</div></a>
-      <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🏠</div><div class="tool-name">Mortgage Calculator</div><div class="tool-desc">Pay off debt first to improve your DTI ratio and qualify for a better mortgage rate.</div><div class="tool-link">mortgagemasher.com →</div></a>
+      <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🏠</div><div class="tool-name">🇺🇸 US Mortgage Calculator</div><div class="tool-desc">Pay off debt first to improve your DTI ratio and qualify for a better US mortgage rate.</div><div class="tool-link">mortgagemasher.com →</div></a>
+      <a href="https://mortgagemasher.ca" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🍁</div><div class="tool-name">🇨🇦 Canadian Mortgage Calculator</div><div class="tool-desc">CMHC, semi-annual compounding, FHSA. Built for Canadian mortgage rules.</div><div class="tool-link">mortgagemasher.ca →</div></a>
     </div>
   </div>
-
 </div>
 
 <footer>
@@ -517,9 +431,7 @@
   <a href="https://www.reddit.com/user/sharplinetools/" target="_blank" rel="noopener">🟠 Reddit</a> &nbsp;·&nbsp;
   Not financial advice · Results are estimates
 </footer>
-
 <nav><a href="index.html">🏠 Calculator</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
-
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
     <div class="modal-title"><button class="modal-close" onclick="closeEmailModal()">✕</button>Email Your Payoff Plan</div>
@@ -530,7 +442,6 @@
     <p class="modal-note">Opens your email app with your payoff plan pre-filled and ready to send.</p>
   </div>
 </div>
-
 <script>
 var selectedMethod='snowball',lastResults={},debtCount=0;
 var colours=['#4a7c59','#c8922a','#3a6b8a','#7a5a8a','#8a4a4a','#4a6a8a'];
@@ -539,7 +450,6 @@ function fmtDate(m){var d=new Date();d.setMonth(d.getMonth()+m);return d.toLocal
 function getSym(){return document.getElementById('currency').value;}
 function toggleFaq(el){el.parentElement.classList.toggle('open');}
 function selectMethod(m){selectedMethod=m;['snowball','avalanche','compare'].forEach(function(x){document.getElementById('m-'+x).classList.toggle('active',x===m);});}
-
 function addDebtRow(name,balance,rate,minPay){
   debtCount++;var id=debtCount;
   var row=document.createElement('div');row.className='debt-row';row.id='debt-'+id;
@@ -561,7 +471,6 @@ function getDebts(){
   });
   return out;
 }
-
 function calcPayoff(debts,method,extraPerMonth){
   var totalBudget=extraPerMonth;
   debts.forEach(function(d){totalBudget+=Math.max(d.minPay,1);});
@@ -581,24 +490,17 @@ function calcPayoff(debts,method,extraPerMonth){
     }
     ds.forEach(function(d){if(d.remaining<=0.005&&!d.paidOffMonth)d.paidOffMonth=month;});
   }
-  return{months:month,totalInterest:totalInterest,
-    payoffOrder:ds.filter(function(d){return d.paidOffMonth;}).sort(function(a,b){return a.paidOffMonth-b.paidOffMonth;}).map(function(d){return{name:d.name,month:d.paidOffMonth};}),ds:ds};
+  return{months:month,totalInterest:totalInterest,payoffOrder:ds.filter(function(d){return d.paidOffMonth;}).sort(function(a,b){return a.paidOffMonth-b.paidOffMonth;}).map(function(d){return{name:d.name,month:d.paidOffMonth};}),ds:ds};
 }
-
 function calcMinOnly(debts){
   var ds=debts.map(function(d){return{name:d.name,rate:d.rate,minPay:Math.max(d.minPay,1),remaining:d.balance};});
   var month=0,totalInterest=0;
   while(ds.some(function(d){return d.remaining>0.005;})&&month<600){
     month++;
-    ds.forEach(function(d){
-      if(d.remaining<=0.005)return;
-      var interest=d.remaining*(d.rate/100/12);totalInterest+=interest;d.remaining+=interest;
-      var pay=Math.min(d.minPay,d.remaining);d.remaining-=pay;if(d.remaining<0.005)d.remaining=0;
-    });
+    ds.forEach(function(d){if(d.remaining<=0.005)return;var interest=d.remaining*(d.rate/100/12);totalInterest+=interest;d.remaining+=interest;var pay=Math.min(d.minPay,d.remaining);d.remaining-=pay;if(d.remaining<0.005)d.remaining=0;});
   }
   return{months:month,totalInterest:totalInterest};
 }
-
 function calculate(){
   var debts=getDebts(),sym=getSym(),extra=parseFloat(document.getElementById('extraPayment').value)||0;
   if(!debts.length){alert('Please add at least one debt.');return;}
@@ -611,28 +513,21 @@ function calculate(){
   var totalDebt=debts.reduce(function(s,d){return s+d.balance;},0);
   var totalMinPayments=debts.reduce(function(s,d){return s+Math.max(d.minPay,0);},0);
   lastResults={primary:primary,snowR:snowR,avaR:avaR,debts:debts,sym:sym,extra:extra,method:selectedMethod,minOnly:minOnly,totalDebt:totalDebt,totalMinPayments:totalMinPayments};
-
-  // Update DTI payments field
   document.getElementById('dtiPayments').value=totalMinPayments.toFixed(0);
-
   var mName=selectedMethod==='snowball'?'Snowball':selectedMethod==='avalanche'?'Avalanche':'Snowball (shown)';
   function card(cls,delay,lbl,val,sub){return '<div class="s-card '+cls+'" style="animation-delay:'+delay+'"><div class="s-card-label">'+lbl+'</div><div class="s-card-value">'+val+'</div><div class="s-card-sub">'+sub+'</div></div>';}
   document.getElementById('summaryCards').innerHTML=
     card('highlight','0s','Total Debt',fmt(totalDebt,sym),debts.length+' debt'+(debts.length>1?'s':'')+' · '+mName)+
     card('','0.1s','Debt Free In',primary.months+' months','Target: '+fmtDate(primary.months))+
     card('gold','0.2s','Total Interest',fmt(primary.totalInterest,sym),'On top of '+fmt(totalDebt,sym));
-
-  // Countdown ring
   var yrs=(primary.months/12);var yrsDisplay=yrs>=1?yrs.toFixed(1):'<1';
-  var maxYrs=Math.max(minOnly.months/12,1);var pct=Math.min((1-(primary.months/Math.max(minOnly.months,1)))*100,100);
+  var pct=Math.min((1-(primary.months/Math.max(minOnly.months,1)))*100,100);
   setTimeout(function(){document.getElementById('countdownRing').style.strokeDashoffset=301.6*(1-Math.max(pct,5)/100);},200);
   document.getElementById('ringYears').textContent=yrsDisplay;
   document.getElementById('countdownTitle').textContent='Debt Free by '+fmtDate(primary.months)+' 🎯';
   document.getElementById('countdownStat1').textContent='⏱ '+primary.months+' months from today';
   document.getElementById('countdownStat2').textContent='💸 '+fmt(primary.totalInterest,sym)+' total interest';
   document.getElementById('countdownSub').textContent=primary.months<minOnly.months?'That is '+(minOnly.months-primary.months)+' months sooner than minimum-only payments.':'Every extra dollar you add shortens this timeline.';
-
-  // Min vs strategy
   var timeSaved=minOnly.months-primary.months;var moneySaved=minOnly.totalInterest-primary.totalInterest;
   document.getElementById('minMonths').textContent=minOnly.months>599?'Never paid off':minOnly.months+' months';
   document.getElementById('minInterest').textContent=fmt(minOnly.totalInterest,sym)+' total interest';
@@ -640,8 +535,6 @@ function calculate(){
   document.getElementById('planInterest').textContent=fmt(primary.totalInterest,sym)+' total interest';
   if(moneySaved>0)document.getElementById('savingsBadge').textContent='Save '+fmt(moneySaved,sym)+' · '+timeSaved+' months sooner';
   else document.getElementById('savingsBadge').textContent='Your plan in action';
-
-  // Timeline
   var sorted=debts.slice().sort(function(a,b){return selectedMethod==='avalanche'?b.rate-a.rate:a.balance-b.balance;});
   var html='';
   sorted.forEach(function(d,i){
@@ -655,37 +548,29 @@ function calculate(){
   });
   document.getElementById('timelineItems').innerHTML=html;
   setTimeout(function(){document.querySelectorAll('.dti-bar2').forEach(function(b){b.style.width=b.dataset.target+'%';});},200);
-
-  // Compare
   if(selectedMethod==='compare'&&snowR&&avaR){
     document.getElementById('comparisonSection').style.display='block';
-    var avWins=avaR.totalInterest<snowR.totalInterest;
-    var saved=Math.abs(snowR.totalInterest-avaR.totalInterest);
+    var avWins=avaR.totalInterest<snowR.totalInterest;var saved=Math.abs(snowR.totalInterest-avaR.totalInterest);
     function cmpCard(win,name,months,interest,badge){
       return '<div class="cmp-card'+(win?' winner':'')+'">'+
         '<div class="cmp-label">Method</div><div class="cmp-name">'+name+'</div>'+
         '<div class="cmp-stat">Debt free: <strong>'+months+' months</strong></div>'+
         '<div class="cmp-stat">Date: <strong>'+fmtDate(months)+'</strong></div>'+
         '<div class="cmp-stat">Interest: <strong>'+fmt(interest,sym)+'</strong></div>'+
-        (win?'<div><span class="winner-badge">'+badge+'</span></div>':
-        '<div style="font-size:0.68rem;color:var(--muted);margin-top:0.4rem;">'+badge+'</div>')+'</div>';
+        (win?'<div><span class="winner-badge">'+badge+'</span></div>':'<div style="font-size:0.68rem;color:var(--muted);margin-top:0.4rem;">'+badge+'</div>')+'</div>';
     }
     document.getElementById('comparisonGrid').innerHTML=
       cmpCard(!avWins,'❄️ Snowball',snowR.months,snowR.totalInterest,!avWins?'✓ Saves '+fmt(saved,sym):'Costs '+fmt(saved,sym)+' more')+
       cmpCard(avWins,'🏔️ Avalanche',avaR.months,avaR.totalInterest,avWins?'✓ Saves '+fmt(saved,sym):'Costs '+fmt(saved,sym)+' more');
   }else{document.getElementById('comparisonSection').style.display='none';}
-
-  // Tip
   var tip='';
-  if(extra===0)tip='💡 <strong>Pro tip:</strong> Adding even '+fmt(50,sym)+' extra per month can shave months off your payoff and save hundreds in interest. Enter an amount in the Extra Monthly Payment field above.';
+  if(extra===0)tip='💡 <strong>Pro tip:</strong> Adding even '+fmt(50,sym)+' extra per month can shave months off your payoff and save hundreds in interest.';
   else if(selectedMethod==='compare'&&snowR&&avaR){var s=Math.abs(snowR.totalInterest-avaR.totalInterest);tip='⚖️ <strong>Your result:</strong> Avalanche saves '+fmt(s,sym)+' in total interest. Snowball delivers faster early wins. The best method is the one you will actually stick with.';}
-  else if(selectedMethod==='snowball')tip='❄️ <strong>Snowball in action:</strong> Your smallest debt gets eliminated first — freeing that payment to accelerate the next one. Each payoff builds momentum.';
-  else tip='🏔️ <strong>Avalanche in action:</strong> Your highest-rate debt is costing the most every month in interest. Eliminating it first saves the maximum possible interest over your full payoff timeline.';
+  else if(selectedMethod==='snowball')tip='❄️ <strong>Snowball in action:</strong> Your smallest debt gets eliminated first — freeing that payment to accelerate the next one.';
+  else tip='🏔️ <strong>Avalanche in action:</strong> Your highest-rate debt is costing the most every month in interest. Eliminating it first saves the maximum possible interest.';
   document.getElementById('tipBox').innerHTML=tip;
-
   var el=document.getElementById('results');el.classList.add('visible');el.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-
 function calcDTI(){
   var income=parseFloat(document.getElementById('dtiIncome').value)||0;
   var payments=parseFloat(document.getElementById('dtiPayments').value)||0;
@@ -694,15 +579,13 @@ function calcDTI(){
   var bar=document.getElementById('dtiBar');
   var status=document.getElementById('dtiStatus');
   var note=document.getElementById('dtiNote');
-  var pct=Math.min(dti,80);
-  setTimeout(function(){bar.style.width=pct+'%';},100);
+  setTimeout(function(){bar.style.width=Math.min(dti,80)+'%';},100);
   if(dti<20){bar.style.background='var(--green)';status.style.color='var(--green)';status.textContent='✓ Excellent — '+dti.toFixed(1)+'% DTI';note.textContent='Your debt load is well-managed. Lenders will view this favourably when you apply for credit or a mortgage.';}
   else if(dti<36){bar.style.background='var(--amber)';status.style.color='var(--amber)';status.textContent='~ Manageable — '+dti.toFixed(1)+'% DTI';note.textContent='Your debt is manageable but there is room to improve. Focus on paying down high-rate balances to move toward the excellent range.';}
-  else if(dti<50){bar.style.background='var(--red)';status.style.color='var(--red)';status.textContent='⚠ Concerning — '+dti.toFixed(1)+'% DTI';note.textContent='Your debt payments are consuming a significant share of income. This may limit borrowing options. Prioritise debt payoff and consider a side income boost.';}
+  else if(dti<50){bar.style.background='var(--red)';status.style.color='var(--red)';status.textContent='⚠ Concerning — '+dti.toFixed(1)+'% DTI';note.textContent='Your debt payments are consuming a significant share of income. Prioritise debt payoff and consider a side income boost.';}
   else{bar.style.background='var(--red)';status.style.color='var(--red)';status.textContent='🚨 Critical — '+dti.toFixed(1)+'% DTI';note.textContent='More than half your income is going to debt payments. Consider speaking with a licensed non-profit credit counsellor immediately. Free help is available.';}
   document.getElementById('dtiResult').classList.add('visible');
 }
-
 function calcLump(){
   var lump=parseFloat(document.getElementById('lumpSum').value)||0;
   if(!lump||!lastResults.debts){document.getElementById('lumpResult').classList.remove('visible');return;}
@@ -711,14 +594,10 @@ function calcLump(){
   var orig=lastResults.primary;
   var monthsSaved=orig.months-withLump.months;var interestSaved=orig.totalInterest-withLump.totalInterest;
   var result=document.getElementById('lumpResult');
-  if(monthsSaved>0||interestSaved>0){
-    result.innerHTML='💡 Applying <strong>'+fmt(lump,sym)+'</strong> to your priority debt right now moves your debt-free date to <strong>'+fmtDate(withLump.months)+'</strong> — <strong>'+(monthsSaved>0?monthsSaved+' month'+(monthsSaved>1?'s':'')+' sooner':'same timeline')+'</strong> and saves <strong>'+fmt(interestSaved,sym)+'</strong> in interest.';
-  }else{result.innerHTML='✅ A <strong>'+fmt(lump,sym)+'</strong> lump sum would eliminate part of your priority debt and maintain your current payoff timeline with less total interest.';}
+  if(monthsSaved>0||interestSaved>0){result.innerHTML='💡 Applying <strong>'+fmt(lump,sym)+'</strong> to your priority debt right now moves your debt-free date to <strong>'+fmtDate(withLump.months)+'</strong> — <strong>'+(monthsSaved>0?monthsSaved+' month'+(monthsSaved>1?'s':'')+' sooner':'same timeline')+'</strong> and saves <strong>'+fmt(interestSaved,sym)+'</strong> in interest.';}
+  else{result.innerHTML='✅ A <strong>'+fmt(lump,sym)+'</strong> lump sum would eliminate part of your priority debt and maintain your current payoff timeline with less total interest.';}
   result.classList.add('visible');
 }
-
-function updateLumpIfNeeded(){if(document.getElementById('results').classList.contains('visible'))calcLump();}
-
 function openEmailModal(){document.getElementById('emailModal').classList.add('open');}
 function closeEmailModal(){document.getElementById('emailModal').classList.remove('open');}
 function sendEmail(){
@@ -728,7 +607,7 @@ function sendEmail(){
   var totalDebt=r.debts.reduce(function(s,d){return s+d.balance;},0);
   var debtList=r.debts.map(function(d){return '  '+d.name+': '+fmt(d.balance,r.sym)+' @ '+d.rate+'% (min '+fmt(d.minPay,r.sym)+'/mo)';}).join('\n');
   var subject=encodeURIComponent('My Debt Payoff Plan — DebtCrusher.ca');
-  var body=encodeURIComponent(greeting+'\n\n━━━━━━━━━━━━━━━━━━━━━\nDEBT PAYOFF PLAN\n━━━━━━━━━━━━━━━━━━━━━\n\nMY DEBTS:\n'+debtList+'\n\nMethod: '+(r.method==='compare'?'Snowball vs Avalanche':r.method.charAt(0).toUpperCase()+r.method.slice(1))+'\nTotal Debt: '+fmt(totalDebt,r.sym)+'\nDebt Free In: '+r.primary.months+' months\nTarget Date: '+fmtDate(r.primary.months)+'\nTotal Interest: '+fmt(r.primary.totalInterest,r.sym)+'\n'+(r.extra>0?'Extra Payment: '+fmt(r.extra,r.sym)+'/month\n':'')+'\n━━━━━━━━━━━━━━━━━━━━━\nhttps://debtcrusher.ca\nNot financial advice.');
+  var body=encodeURIComponent(greeting+'\n\nMY DEBTS:\n'+debtList+'\n\nMethod: '+(r.method==='compare'?'Snowball vs Avalanche':r.method.charAt(0).toUpperCase()+r.method.slice(1))+'\nTotal Debt: '+fmt(totalDebt,r.sym)+'\nDebt Free In: '+r.primary.months+' months\nTarget Date: '+fmtDate(r.primary.months)+'\nTotal Interest: '+fmt(r.primary.totalInterest,r.sym)+'\n'+(r.extra>0?'Extra Payment: '+fmt(r.extra,r.sym)+'/month\n':'')+'\nhttps://debtcrusher.ca\nNot financial advice.');
   window.location.href='mailto:'+to+'?subject='+subject+'&body='+body;closeEmailModal();
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeEmailModal();});
