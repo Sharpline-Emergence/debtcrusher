@@ -208,6 +208,20 @@
   .faq-item.open .faq-q::after{content:'－';}
   .faq-a{font-size:0.8rem;line-height:1.9;color:var(--muted);display:none;padding-top:0.6rem;}
   .faq-item.open .faq-a{display:block;}
+  .guides-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
+  .guides-panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:0.4rem;color:var(--ink);}
+  .guides-panel-sub{font-size:0.72rem;color:var(--muted);margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+  .guides-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .guide-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;text-decoration:none;color:var(--ink);transition:border-color 0.2s,box-shadow 0.2s;display:block;}
+  .guide-card:hover{border-color:var(--sage);box-shadow:0 2px 8px rgba(74,124,89,0.12);}
+  .guide-tag{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:2px;margin-bottom:0.5rem;}
+  .tag-strategy{background:var(--blue-pale);color:var(--blue);}
+  .tag-credit{background:var(--red-pale);color:var(--red);}
+  .guide-title{font-size:0.82rem;font-weight:500;color:var(--sage);margin-bottom:0.3rem;line-height:1.4;}
+  .guide-desc{font-size:0.68rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem;}
+  .guide-meta{font-size:0.62rem;color:var(--muted);letter-spacing:0.05em;}
+  .guides-all{display:block;text-align:center;margin-top:1rem;font-size:0.72rem;color:var(--sage);text-decoration:none;letter-spacing:0.05em;}
+  .guides-all:hover{color:var(--gold);}
   .tools-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
   .tools-panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;color:var(--ink);padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
   .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
@@ -230,9 +244,9 @@
   footer{text-align:center;padding:1.5rem 2rem;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;border-top:1px solid var(--border);margin-top:1rem;line-height:2;}
   footer a{color:var(--sage);text-decoration:none;}
   footer a:hover{color:var(--gold);}
-  @media(max-width:640px){header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.method-selector{grid-template-columns:1fr;}.settings-bar{grid-template-columns:1fr;}.debt-row{grid-template-columns:1fr 1fr;}.summary-cards{grid-template-columns:1fr;}.comparison-grid{grid-template-columns:1fr;}.min-vs-grid{grid-template-columns:1fr;}.method-compare{grid-template-columns:1fr;}.tips-grid{grid-template-columns:1fr;}.gig-grid{grid-template-columns:1fr 1fr;}.counsellor-points{grid-template-columns:1fr;}.tools-grid{grid-template-columns:1fr 1fr;}.share-row{grid-template-columns:1fr;}.dti-row{grid-template-columns:1fr;}.lump-row{grid-template-columns:1fr;}.countdown-panel{flex-direction:column;}.steps-grid{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
+  @media(max-width:640px){header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.method-selector{grid-template-columns:1fr;}.settings-bar{grid-template-columns:1fr;}.debt-row{grid-template-columns:1fr 1fr;}.summary-cards{grid-template-columns:1fr;}.comparison-grid{grid-template-columns:1fr;}.min-vs-grid{grid-template-columns:1fr;}.method-compare{grid-template-columns:1fr;}.tips-grid{grid-template-columns:1fr;}.gig-grid{grid-template-columns:1fr 1fr;}.counsellor-points{grid-template-columns:1fr;}.tools-grid{grid-template-columns:1fr 1fr;}.guides-grid{grid-template-columns:1fr;}.share-row{grid-template-columns:1fr;}.dti-row{grid-template-columns:1fr;}.lump-row{grid-template-columns:1fr;}.countdown-panel{flex-direction:column;}.steps-grid{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
   @media(max-width:400px){.tools-grid{grid-template-columns:1fr;}.gig-grid{grid-template-columns:1fr;}}
-  @media print{body::before,nav,.ad-slot,.share-row,.btn-add,.btn-remove,.calc-btn,.tools-panel{display:none !important;}.results{opacity:1 !important;transform:none !important;}}
+  @media print{body::before,nav,.ad-slot,.share-row,.btn-add,.btn-remove,.calc-btn,.tools-panel,.guides-panel{display:none !important;}.results{opacity:1 !important;transform:none !important;}}
 </style>
 </head>
 <body>
@@ -345,8 +359,8 @@
     <p>The fastest way to pay off debt is to increase the amount going toward your priority debt each month. Even an extra $200-$500 per month can cut years off your timeline and save thousands in interest. The key: direct 100% of any side income to your priority debt.</p>
     <div class="gig-grid">
       <div class="gig-card"><div class="gig-icon">🚗</div><div class="gig-title">Rideshare Driving</div><div class="gig-range">$300–$1,200/mo</div><div class="gig-tip">Uber or Lyft. Flexible hours — even 8-10 hrs/week adds up. Peak times (Friday nights, weekends) maximize earnings per hour.</div></div>
-      <div class="gig-card"><div class="gig-icon">🛵</div><div class="gig-title">Food Delivery</div><div class="gig-range">$200–$800/mo</div><div class="gig-tip">DoorDash, Uber Eats, Skip The Dishes (Canada). Lunchtime and dinner rush are most profitable.</div></div>
-      <div class="gig-card"><div class="gig-icon">📦</div><div class="gig-title">Sell Surplus Items</div><div class="gig-range">$100–$500/mo</div><div class="gig-tip">Facebook Marketplace, Kijiji (Canada) or eBay. Start with one room at a time. Electronics, tools and baby gear sell fastest.</div></div>
+      <div class="gig-card"><div class="gig-icon">🛵</div><div class="gig-title">Food Delivery</div><div class="gig-range">$200–$800/mo</div><div class="gig-tip">DoorDash, Uber Eats, Skip The Dishes. Lunchtime and dinner rush are most profitable.</div></div>
+      <div class="gig-card"><div class="gig-icon">📦</div><div class="gig-title">Sell Surplus Items</div><div class="gig-range">$100–$500/mo</div><div class="gig-tip">Facebook Marketplace, Kijiji or eBay. Start with one room at a time. Electronics, tools and baby gear sell fastest.</div></div>
       <div class="gig-card"><div class="gig-icon">🛒</div><div class="gig-title">Grocery Delivery</div><div class="gig-range">$200–$600/mo</div><div class="gig-tip">Instacart, Shipt, TaskRabbit. Grocery delivery pays well in suburban areas.</div></div>
       <div class="gig-card"><div class="gig-icon">💻</div><div class="gig-title">Freelance Your Skills</div><div class="gig-range">$500–$3,000/mo</div><div class="gig-tip">Writing, design, coding, bookkeeping. Upwork and Fiverr to start. Highest hourly rate of any gig.</div></div>
       <div class="gig-card"><div class="gig-icon">🐕</div><div class="gig-title">Pet Sitting / Dog Walking</div><div class="gig-range">$200–$700/mo</div><div class="gig-tip">Rover, Wag or local clients. Overnight pet sitting pays $50-80/night. Low startup cost.</div></div>
@@ -411,6 +425,25 @@
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When should I speak with a credit counsellor?</div><div class="faq-a">Consider non-profit credit counselling if your minimum payments exceed 20% of take-home pay, you are missing payments, using credit cards for basic living expenses, or feeling genuinely overwhelmed. Credit Counselling Canada member agencies and NFCC member agencies in the US offer free or low-cost guidance and can negotiate with creditors on your behalf.</div></div>
   </div>
   <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
+  <div class="guides-panel">
+    <div class="guides-panel-title">Debt Payoff Guides</div>
+    <div class="guides-panel-sub">In-depth articles to help you pay off debt faster and smarter.</div>
+    <div class="guides-grid">
+      <a href="guide-snowball-vs-avalanche.html" class="guide-card">
+        <div class="guide-tag tag-strategy">Debt Strategy</div>
+        <div class="guide-title">Snowball vs Avalanche — Which Method Pays Off Debt Faster?</div>
+        <div class="guide-desc">A numbers-based comparison with a real worked example showing exactly how much each method costs and saves.</div>
+        <div class="guide-meta">8 min read</div>
+      </a>
+      <a href="guide-minimum-payments.html" class="guide-card">
+        <div class="guide-tag tag-credit">Credit Cards</div>
+        <div class="guide-title">What Really Happens If You Only Pay Minimums on Your Credit Card</div>
+        <div class="guide-desc">The minimum payment trap explained with real numbers — and a practical plan for escaping it.</div>
+        <div class="guide-meta">7 min read</div>
+      </a>
+    </div>
+    <a href="guides.html" class="guides-all">View all guides →</a>
+  </div>
   <div class="tools-panel">
     <div class="tools-panel-title">More Free Tools from Sharpline</div>
     <div class="tools-grid">
@@ -431,7 +464,7 @@
   <a href="https://ca.pinterest.com/09cldr3fi281mrfxxo6ojrxbxrmmk6/" target="_blank" rel="noopener">📌 Pinterest</a> &nbsp;·&nbsp;
   Not financial advice · Results are estimates
 </footer>
-<nav><a href="index.html">🏠 Calculator</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
+<nav><a href="index.html">🏠 Calculator</a><a href="guides.html">Guides</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
     <div class="modal-title"><button class="modal-close" onclick="closeEmailModal()">✕</button>Email Your Payoff Plan</div>
